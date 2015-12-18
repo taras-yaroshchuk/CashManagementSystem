@@ -1,0 +1,31 @@
+h1 {
+	text-align: center;
+}
+td {
+	border-style: solid; 
+	border-width: 1px; 
+	text-align: center; 
+    border-collapse: collapse;
+}
+table { 
+	margin: auto; 
+    border-collapse: collapse;
+}
+
+#top { background-color: #ccc; 
+       padding: 20px } 
+.intro { 
+	color: red; 
+    font-weight: bold; 
+} 
+
+#top { 
+	background-color: #ccc; 
+	padding: 1em } 
+#top h1 { 
+	color: #ff0; 
+} 
+#top p { 
+	color: red; 
+	font-weight: bold; 
+} 

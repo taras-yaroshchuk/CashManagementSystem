@@ -1,0 +1,35 @@
+p { 
+	color: red; 
+}
+h1 {
+	color: #ff8040; 
+	border-style:dotted;
+	float:auto;
+	padding:10px;
+	margin:10px;
+	align:justify;
+	height: 70px; 
+    width: 200px;
+}
+h3 {
+	color: #ff8040; 
+	border-style:dashed;
+	height: 30px; 
+    width: 120px;
+	padding:5px;
+	margin:10px;
+	align:justify;
+}
+a { 
+	color: brown; 
+}
+
+table {
+	border-style:dotted;
+	color: red; 
+}
+
+body {
+font-size: 1em;
+color: navy; 
+} 
