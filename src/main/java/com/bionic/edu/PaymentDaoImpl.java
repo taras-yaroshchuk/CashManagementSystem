@@ -17,6 +17,7 @@ public class PaymentDaoImpl implements PaymentDao {
         query.setParameter("id", id);
         return query.getResultList();
     }
+    
      //SAME AS
 //    public List<Payment> findByMerchantId(int id){
 //    	String queryString = "SELECT p FROM Payment p WHERE p.merchantId = ?1";
@@ -25,13 +26,17 @@ public class PaymentDaoImpl implements PaymentDao {
 //        return query.getResultList();
 //    }
 
-    public double getPaymentSum(){
-        TypedQuery<Double> query = em.createQuery("SELECT SUM(p.sumPayed) FROM 	Payment p", Double.class);
-        return query.getSingleResult();
-    }
+
     public Payment findById(int id){
         return em.find(Payment.class, id);
     }
 
 
+	public List<Payment> findAll() {
+		TypedQuery<Payment> query = 
+		em.createQuery("SELECT p FROM Payment p", Payment.class);
+		List<Payment> listP = query.getResultList();
+		return listP; 
+	}
 }
+

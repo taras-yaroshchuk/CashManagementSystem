@@ -20,8 +20,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void save(Customer customer) {
     	customerDao.save(customer);
     }
-    
-    public List<String> getNames(double sumPayed){
-        return customerDao.getNames(sumPayed);
-    }
+
+	public List<Customer> findAll() {
+		return customerDao.findAll();
+	}
+	
 }

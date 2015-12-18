@@ -20,25 +20,6 @@ public class Merchant {
     private double sent;
     private java.sql.Date lastSent;    
     
-    @OneToMany(fetch=FetchType.LAZY, //by default
-    		mappedBy="merchant") //ссылка на поле merchant сущности Payment 
-	private Collection<Payment> payments;
-
-    public String getDataForWeb(){
-        String ret = "<tr><td>" + name +"<td>" +  
-             bankName + "<td>" + charge + "<td>" + 
-             minSum + "</tr>";
-        return ret;
-   }
-
-    public Collection<Payment> getPayments() {
-		return payments;
-	}
-
-	public void setPayments(Collection<Payment> payments) {
-		this.payments = payments;
-	}
-
 	
     public Merchant(){   }
 	

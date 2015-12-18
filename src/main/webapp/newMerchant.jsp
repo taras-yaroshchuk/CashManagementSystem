@@ -17,9 +17,9 @@
 			<td>Minimum Sum
 		</tr>
 		<%
-			org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
-					"spring/application-config.xml");
-			com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
+			org.springframework.context.ApplicationContext context = 
+			new org.springframework.context.support.ClassPathXmlApplicationContext("spring/application-config.xml");
+			com.bionic.edu.MerchantService merchantService =(com.bionic.edu.MerchantService)context
 					.getBean("merchantServiceImpl");
 			com.bionic.edu.Merchant merchant = new com.bionic.edu.Merchant();
 			merchant.setName(request.getParameter("name"));
@@ -29,10 +29,15 @@
 			merchant.setCharge(Double.valueOf(request.getParameter("charge")));
 			merchant.setPeriod(Short.valueOf(request.getParameter("period")));
 			merchant.setMinSum(Double.valueOf(request.getParameter("sum")));
-			merchantService.save(merchant);
+			//merchantService.save(merchant);
 			java.util.List<com.bionic.edu.Merchant> list = merchantService.findAll();
 			for (com.bionic.edu.Merchant m : list) {
-				out.print(m.getDataForWeb());
+				out.print("<tr>");
+				out.print("<td>" + m.getName());
+				out.print("<td>" + m.getBankName());
+				out.print("<td>" + m.getCharge());
+				out.print("<td>" + m.getMinSum());
+				out.print("</tr>");
 			}
 		%>
 	</table>

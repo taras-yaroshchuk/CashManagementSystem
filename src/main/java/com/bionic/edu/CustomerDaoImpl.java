@@ -25,13 +25,12 @@ public class CustomerDaoImpl implements CustomerDao{
     	}
     }
     
-    public List<String> getNames(double sumPayed){
-        String txt = "SELECT DISTINCT c.name FROM ";   
-        txt += "Payment p, Customer c " ;
-        txt += "WHERE c.id = p.customerId AND p.sumPayed > :limit";
-      //String.class because we return NAMES, not Customers
-        TypedQuery<String> query = em.createQuery(txt, String.class); 
-        query.setParameter("limit", sumPayed);
-        return query.getResultList();
-  }
+
+
+	public List<Customer> findAll() {
+		TypedQuery<Customer> query = 
+        		em.createQuery("SELECT c FROM Customer c", Customer.class);
+         List<Customer> listC = query.getResultList();
+         return listC; 
+	}
 }

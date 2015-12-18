@@ -16,20 +16,8 @@ public class Customer {
     private String ccType;
     private java.sql.Date maturity;
 
-    @ManyToMany(fetch=FetchType.LAZY) //by default
-    @JoinTable(name="Payment", 
-    	joinColumns=@JoinColumn(name="customerId"),
-    	inverseJoinColumns=@JoinColumn(name="merchantId"))
-    private Collection<Merchant> merchants;
-
     
-    public Collection<Merchant> getMerchants() {
-		return merchants;
-	}
-	public void setMerchants(Collection<Merchant> merchants) {
-		this.merchants = merchants;
-	}
-	public String getName() {
+    public String getName() {
 		return name;
 	}
 	public void setName(String name) {
