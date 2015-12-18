@@ -12,11 +12,19 @@ public class Payment {
 	private String goods;
 	private java.sql.Timestamp dt;
 	private int customerId;
-
-	private int merchantId; //удаляем это, хотя такая колонка есть
+	private int merchantId; 
 	
 	public int getId() {
 		return id;
+	}
+
+
+	public int getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(int merchantId) {
+		this.merchantId = merchantId;
 	}
 
 	public void setId(int id) {

@@ -2,8 +2,12 @@ package com.bionic.edu;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -53,9 +57,25 @@ public class Application {
 
 		// application.printMerchantsOfCustomer(3);
 
+		//application.test();
 	}
 
 	
+
+
+	private void test() {
+		Random rand = new Random();
+		for(Merchant m: merchantService.findAll()) {
+			m.setSent(1000 + rand.nextInt(5000));
+			java.util.Date utilDate = new java.util.Date();
+		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+		    m.setLastSent(sqlDate);
+			merchantService.save(m);
+		}
+		
+	}
+
+
 
 
 	public void findAll() {
@@ -80,7 +100,7 @@ public class Application {
 		customer.setCcNo("454465242");
 		customer.setCcType("Visa");
 		customer.setEmail("taras.yaroshchuk@gmail.com");
-		// customer.setMaturity(new Date());
+//		 customer.setMaturity(new Date());
 		customerService.save(customer);
 		return customer.getId();
 	}

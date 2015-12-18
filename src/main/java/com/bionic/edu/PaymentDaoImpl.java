@@ -38,5 +38,14 @@ public class PaymentDaoImpl implements PaymentDao {
 		List<Payment> listP = query.getResultList();
 		return listP; 
 	}
+
+
+	public void save(Payment payment) {
+		if (payment.getId() == 0) {
+    		em.persist(payment);
+    	} else{
+    		em.merge(payment);
+    	}
+	}
 }
 

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.*;
 import javax.persistence.TypedQuery;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Named
 public class PaymentServiceImpl implements PaymentService{
     @Inject
@@ -21,5 +23,11 @@ public class PaymentServiceImpl implements PaymentService{
 	public List<Payment> findAll() {
 		return paymentDao.findAll();
 	}
+	
+	@Transactional
+	public void save(Payment payment) {
+		paymentDao.save(payment);
+	}
+	
 
 }
