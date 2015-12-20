@@ -7,4 +7,5 @@ public interface PaymentDao {
 	public Payment findById(int id);
 	public List<Payment> findAll();
 	public void save(Payment payment);
+	
 }

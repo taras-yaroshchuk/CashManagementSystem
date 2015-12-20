@@ -25,6 +25,10 @@ public class Application {
 
 	@Inject
 	PaymentService paymentService;
+	
+	@Inject
+	PaymentListService paymentListService;
+	
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -58,6 +62,8 @@ public class Application {
 		// application.printMerchantsOfCustomer(3);
 
 		//application.test();
+		
+		application.getReadyToBePayed();
 	}
 
 	
@@ -73,6 +79,13 @@ public class Application {
 			merchantService.save(m);
 		}
 		
+	}
+	
+	private void getReadyToBePayed() {
+		List<Merchant> list = merchantService.findReadyToBePayed();
+		for (Merchant m : list) {
+			System.out.format("%1$27s     %2$4.2f  %n", m.getName(), m.getCharge());
+		}
 	}
 
 

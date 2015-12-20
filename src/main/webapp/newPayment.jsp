@@ -40,11 +40,12 @@
 			
 			java.util.Date utilDate = new java.util.Date();
 		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-			payment.setDt(new java.sql.Timestamp(sqlDate.getDate()));
+			payment.setDt(new java.sql.Timestamp(sqlDate.getTime()));
 			
 			com.bionic.edu.Merchant merchant = merchantService.findById(merchId);
 			Double chargePayed = (sumPayed / 100) * merchant.getCharge();
-			payment.setChargePayed(chargePayed);
+			Double accuracyChargePayed = new java.math.BigDecimal(chargePayed).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+			payment.setChargePayed(accuracyChargePayed);
 			
 			merchant.setNeedToSend( merchant.getNeedToSend() + sumPayed - chargePayed);
 			

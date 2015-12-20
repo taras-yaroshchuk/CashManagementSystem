@@ -27,4 +27,8 @@ public class MerchantServiceImpl implements MerchantService {
 		return merchantDao.findAll();
 	}
 
+	public List<Merchant> findReadyToBePayed() {
+		return merchantDao.findReadyToBePayed();
+	}
+
 }

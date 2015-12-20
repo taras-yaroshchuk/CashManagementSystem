@@ -6,4 +6,5 @@ public interface MerchantService {
 	public Merchant findById(int id);
 	public void save(Merchant merchant);
 	public List<Merchant> findAll();
+	public List<Merchant> findReadyToBePayed();
 }
