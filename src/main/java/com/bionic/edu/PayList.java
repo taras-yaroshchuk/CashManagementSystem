@@ -5,7 +5,7 @@ import java.util.Collection;
 import javax.persistence.*;
 
 @Entity
-public class PaymentList {
+public class PayList {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -15,7 +15,7 @@ public class PaymentList {
 	private Double sumSent;
 	private int priority;
 	
-	public PaymentList() { }
+	public PayList() { }
 	
 	public java.sql.Timestamp getSentDate() {
 		return sentDate;

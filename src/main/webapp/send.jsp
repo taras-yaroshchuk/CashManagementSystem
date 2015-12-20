@@ -21,8 +21,30 @@
 					"spring/application-config.xml");
 			com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
 					.getBean("payListServiceImpls");
-			java.util.List<com.bionic.edu.PayList> list = payListService.findAll();
+			com.bionic.edu.MerchantService merchantService =(com.bionic.edu.MerchantService)context
+					.getBean("merchantServiceImpl");
+
+			java.util.Date utilDate = new java.util.Date();
+			java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+			java.sql.Timestamp timestamp = new java.sql.Timestamp(sqlDate.getTime());
+
+			Double sum = Double.valueOf(request.getParameter("sum"));
+			java.util.List<com.bionic.edu.PayList> list = payListService.getSortedList();
 			for (com.bionic.edu.PayList pl : list) {
+				Double sumSent = pl.getSumSent();
+				Double residue = sum - sumSent;
+				if (residue >= 0) {
+					sum = sum - sumSent;
+					com.bionic.edu.Merchant m = merchantService.findById(pl.getMerchantId());
+					m.setNeedToSend(m.getNeedToSend() - pl.getSumSent());
+					m.setLastSent(sqlDate);
+					pl.setStatus("Paid");
+					
+					merchantService.save(m);
+					payListService.save(pl);
+				} else {
+					pl.setPriority(pl.getPriority() + 1);
+				}
 				out.print("<tr>");
 				out.print("<td>" + pl.getMerchantId());
 				out.print("<td>" + pl.getSumSent());
@@ -31,7 +53,9 @@
 				out.print("<td>" + pl.getStatus());
 				out.print("</tr>");
 			}
+			
+			out.print("<tr>Residue : " + sum + "</tr>");
 		%>
-	
+	</table>
 </body>
 </html>

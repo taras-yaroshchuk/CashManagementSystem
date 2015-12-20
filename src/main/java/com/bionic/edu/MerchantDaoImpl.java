@@ -30,27 +30,27 @@ public class MerchantDaoImpl implements MerchantDao {
 	}
 
 	public List<Merchant> findReadyToBePayed() {
-		TypedQuery<Merchant> query = em.createQuery("SELECT m FROM Merchant m "
-				+ "WHERE m.needToSend >= m.minSum", Merchant.class);
+		TypedQuery<Merchant> query = em.createQuery("SELECT m FROM Merchant m " + "WHERE m.needToSend >= m.minSum",
+				Merchant.class);
 		List<Merchant> listM = query.getResultList();
 		List<Merchant> readyToBePayed = new ArrayList<Merchant>();
-		
+
 		for (Merchant merch : listM) {
 			Short period = merch.getPeriod();
-			
-			Calendar cal = Calendar.getInstance();
-			
-			java.util.Date utilDate = new java.util.Date();
-		    java.sql.Date nowDate = new java.sql.Date(utilDate.getTime());
-		    java.sql.Date lastSentDate = merch.getLastSent();
-		    
-		    cal.setTime(lastSentDate);
-		    cal.add(Calendar.DAY_OF_YEAR, period);
 
-		    java.sql.Date needToSentDate = new java.sql.Date(cal.getTimeInMillis());
-		    
-			if(needToSentDate.compareTo(nowDate) >= 0 ) {
-				//needToSentDate after nowDate
+			Calendar cal = Calendar.getInstance();
+
+			java.util.Date utilDate = new java.util.Date();
+			java.sql.Date nowDate = new java.sql.Date(utilDate.getTime());
+			
+			java.sql.Date lastSentDate = merch.getLastSent();
+
+			cal.setTime(lastSentDate);
+			cal.add(Calendar.DAY_OF_YEAR, period);
+
+			java.sql.Date needToSentDate = new java.sql.Date(cal.getTimeInMillis());
+
+			if (needToSentDate.compareTo(nowDate) <= 0) {
 				readyToBePayed.add(merch);
 			}
 		}

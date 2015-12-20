@@ -27,7 +27,7 @@ public class Application {
 	PaymentService paymentService;
 	
 	@Inject
-	PaymentListService paymentListService;
+	PayListService payListService;
 	
 
 	@SuppressWarnings("resource")
@@ -83,12 +83,13 @@ public class Application {
 	
 	private void getReadyToBePayed() {
 		List<Merchant> list = merchantService.findReadyToBePayed();
+		System.out.println("Merchants :");
 		for (Merchant m : list) {
-			System.out.format("%1$27s     %2$4.2f  %n", m.getName(), m.getCharge());
+			System.out.format("%1$27s     %2$4.2f  %n", m.getName(), m.getNeedToSend());
 		}
+		System.out.println("Done");
 	}
-
-
+	
 
 
 	public void findAll() {
