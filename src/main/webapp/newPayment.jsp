@@ -38,7 +38,6 @@
 			Double sumPayed = Double.valueOf(request.getParameter("sum"));
 			payment.setSumPayed(sumPayed);
 			
-			//java.util.Date dt = new java.util.Date();
 			java.util.Date utilDate = new java.util.Date();
 		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 			payment.setDt(new java.sql.Timestamp(sqlDate.getDate()));
@@ -48,6 +47,7 @@
 			payment.setChargePayed(chargePayed);
 			
 			merchant.setNeedToSend( merchant.getNeedToSend() + sumPayed - chargePayed);
+			
 			merchantService.save(merchant);
 			paymentService.save(payment);
 			

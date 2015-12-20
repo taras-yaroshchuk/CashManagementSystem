@@ -29,7 +29,7 @@
 			merchant.setCharge(Double.valueOf(request.getParameter("charge")));
 			merchant.setPeriod(Short.valueOf(request.getParameter("period")));
 			merchant.setMinSum(Double.valueOf(request.getParameter("sum")));
-			//merchantService.save(merchant);
+			merchantService.save(merchant);
 			java.util.List<com.bionic.edu.Merchant> list = merchantService.findAll();
 			for (com.bionic.edu.Merchant m : list) {
 				out.print("<tr>");
