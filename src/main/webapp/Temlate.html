@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Pay list</title>
+<title>Bootstrap Template</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -13,11 +13,9 @@
 </head>
 <body>
 	<div class="container">
-
+		
 		<div class="page-header">
-			<div class="well">
-				<h1 align="center">Cash Management System</h1>
-			</div>
+			<div class="well"><h1 align="center">Cash Management System </h1></div>
 		</div>
 		<div class="row">
 			<div class="col-sm-3">
@@ -41,8 +39,8 @@
 						new Payment</a>
 					</li>
 					<h3 align="center">Pay Lists</h3>
-					<a href="showPayLists.jsp" class="list-group-item active"
-						align="center">Show all Pay Lists</a>
+					<a href="showPayLists.jsp" class="list-group-item" align="center">Show
+						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
@@ -51,34 +49,9 @@
 				</div>
 			</div>
 			<div class="col-sm-8">
-				<h3 align="center">Pay List</h3>
-				<table class="table table-striped">
-					
-					<tr>
-						<td><b>Merchant Id
-						<td><b>Sum Sent 
-						<td><b>Sent Date 
-						<td><b>Priority 
-						<td><b>Status 
-					</tr>
-					<%
-						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
-								"spring/application-config.xml");
-						com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
-								.getBean("payListServiceImpl");
-						java.util.List<com.bionic.edu.PayList> list = payListService.findAll();
-						for (com.bionic.edu.PayList pl : list) {
-							out.print("<tr>");
-							out.print("<td>" + pl.getMerchantId());
-							out.print("<td>" + pl.getSumSent());
-							out.print("<td>" + pl.getSentDate().getDate());
-							out.print("<td>" + pl.getPriority());
-							out.print("<td>" + pl.getStatus());
-							out.print("</tr>");
-						}
-					%>
-					
-				</table>
+				<h3>Column 2</h3>
+
+
 			</div>
 		</div>
 	</div>

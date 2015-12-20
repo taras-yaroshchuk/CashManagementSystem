@@ -44,7 +44,7 @@ public class PayListDaoImpl implements PayListDao {
 	}
 
 	public List<PayList> getSortedList() {
-		TypedQuery<PayList> query = em.createQuery("SELECT p FROM PayList p ORDER BY p.priority DESC WHERE p.status = 'NotPaid'", PayList.class);
+		TypedQuery<PayList> query = em.createQuery("SELECT p FROM PayList p WHERE p.status = 'NotPaid' ORDER BY p.priority DESC ", PayList.class);
 		List<PayList> listP = query.getResultList();
 		return listP;
 	}

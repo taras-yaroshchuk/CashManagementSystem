@@ -20,7 +20,7 @@
 			org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 					"spring/application-config.xml");
 			com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
-					.getBean("payListServiceImpls");
+					.getBean("payListServiceImpl");
 			com.bionic.edu.MerchantService merchantService =(com.bionic.edu.MerchantService)context
 					.getBean("merchantServiceImpl");
 
@@ -43,7 +43,8 @@
 					merchantService.save(m);
 					payListService.save(pl);
 				} else {
-					pl.setPriority(pl.getPriority() + 1);
+					int priority = pl.getPriority();
+					pl.setPriority(priority + 1);
 				}
 				out.print("<tr>");
 				out.print("<td>" + pl.getMerchantId());

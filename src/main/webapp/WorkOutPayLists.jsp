@@ -13,7 +13,7 @@
 		org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 				"spring/application-config.xml");
 		com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
-				.getBean("payListServiceImpls");
+				.getBean("payListServiceImpl");
 		com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
 				.getBean("merchantServiceImpl");
 

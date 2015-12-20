@@ -8,7 +8,7 @@ import javax.inject.Named;
 import org.springframework.transaction.annotation.Transactional;
 
 @Named
-public class PayListServiceImpls implements PayListService {
+public class PayListServiceImpl implements PayListService {
     @Inject
     private PayListDao payListDao;
  

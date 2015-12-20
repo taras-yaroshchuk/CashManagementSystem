@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>New Payment</title>
+<title>List of Payments</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -51,55 +51,31 @@
 				</div>
 			</div>
 			<div class="col-sm-8">
-				<h3 align="center">New Payment was added successfully!</h3>
+				<h3 align="center">List of Payments</h3>
 				<table class="table table-striped">
 					<tr>
-						<td>Merchant Id
-						<td>Customer Id
-						<td>Goods
-						<td>Sum payed
-						<td>Charge payed
+						<td><b>Merchant Id
+						<td><b>Customer Id
+						<td><b>Goods
+						<td><b>Sum payed
+						<td><b>Charge payed
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
 						com.bionic.edu.PaymentService paymentService = (com.bionic.edu.PaymentService) context
 								.getBean("paymentServiceImpl");
-						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
-								.getBean("merchantServiceImpl");
-						com.bionic.edu.Payment payment = new com.bionic.edu.Payment();
 
-						payment.setCustomerId(Integer.valueOf(request.getParameter("customerId")));
-
-						Integer merchId = Integer.valueOf(request.getParameter("merchantId"));
-						payment.setMerchantId(merchId);
-						payment.setGoods(request.getParameter("goods"));
-
-						Double sumPayed = Double.valueOf(request.getParameter("sum"));
-						payment.setSumPayed(sumPayed);
-
-						java.util.Date utilDate = new java.util.Date();
-						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-						payment.setDt(new java.sql.Timestamp(sqlDate.getTime()));
-
-						com.bionic.edu.Merchant merchant = merchantService.findById(merchId);
-						Double chargePayed = (sumPayed / 100) * merchant.getCharge();
-						Double accuracyChargePayed = new java.math.BigDecimal(chargePayed)
-								.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
-						payment.setChargePayed(accuracyChargePayed);
-
-						merchant.setNeedToSend(merchant.getNeedToSend() + sumPayed - chargePayed);
-
-						merchantService.save(merchant);
-						paymentService.save(payment);
-
-						out.print("<tr>");
-						out.print("<td>" + payment.getCustomerId());
-						out.print("<td>" + payment.getCustomerId());
-						out.print("<td>" + payment.getGoods());
-						out.print("<td>" + payment.getSumPayed());
-						out.print("<td>" + payment.getChargePayed());
-						out.print("</tr>");
+						java.util.List<com.bionic.edu.Payment> list = paymentService.findAll();
+						for (com.bionic.edu.Payment p : list) {
+							out.print("<tr>");
+							out.print("<td>" + p.getCustomerId());
+							out.print("<td>" + p.getCustomerId());
+							out.print("<td>" + p.getGoods());
+							out.print("<td>" + p.getSumPayed());
+							out.print("<td>" + p.getChargePayed());
+							out.print("</tr>");
+						}
 					%>
 				</table>
 			</div>
@@ -115,4 +91,3 @@
 	<script src="js/bootstrap.js"></script>
 </body>
 </html>
-
