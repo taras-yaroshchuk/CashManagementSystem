@@ -31,4 +31,9 @@ public class MerchantServiceImpl implements MerchantService {
 		return merchantDao.findReadyToBePayed();
 	}
 
+
+	public int getMaxId() {
+		return merchantDao.getMaxId();
+	}
+
 }

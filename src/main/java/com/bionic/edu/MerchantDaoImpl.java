@@ -42,7 +42,7 @@ public class MerchantDaoImpl implements MerchantDao {
 
 			java.util.Date utilDate = new java.util.Date();
 			java.sql.Date nowDate = new java.sql.Date(utilDate.getTime());
-			
+
 			java.sql.Date lastSentDate = merch.getLastSent();
 
 			cal.setTime(lastSentDate);
@@ -57,4 +57,9 @@ public class MerchantDaoImpl implements MerchantDao {
 		return readyToBePayed;
 	}
 
+	public int getMaxId(){
+		TypedQuery<Merchant> query = em.createQuery("SELECT m FROM Merchant m ORDER BY m.id DESC", Merchant.class);
+		List<Merchant> listM = query.getResultList();
+		return listM.get(0).getId();
+	}
 }

@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+					</li> <a href="Send.html" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -95,7 +95,7 @@
 
 						out.print("<tr>");
 						out.print("<td>" + payment.getCustomerId());
-						out.print("<td>" + payment.getCustomerId());
+						out.print("<td>" + payment.getMerchantId());
 						out.print("<td>" + payment.getGoods());
 						out.print("<td>" + payment.getSumPayed());
 						out.print("<td>" + payment.getChargePayed());

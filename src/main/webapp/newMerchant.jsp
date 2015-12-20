@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+					</li> <a href="Send.html" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -72,6 +72,9 @@
 						merchant.setCharge(Double.valueOf(request.getParameter("charge")));
 						merchant.setPeriod(Short.valueOf(request.getParameter("period")));
 						merchant.setMinSum(Double.valueOf(request.getParameter("sum")));
+						java.util.Date utilDate = new java.util.Date();
+						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+						merchant.setLastSent(sqlDate);
 						merchantService.save(merchant);
 
 						out.print("<tr>");

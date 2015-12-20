@@ -82,12 +82,17 @@ public class Application {
 	}
 	
 	private void getReadyToBePayed() {
+		
 		List<Merchant> list = merchantService.findReadyToBePayed();
 		System.out.println("Merchants :");
 		for (Merchant m : list) {
 			System.out.format("%1$27s     %2$4.2f  %n", m.getName(), m.getNeedToSend());
 		}
 		System.out.println("Done");
+		
+		
+		System.out.println("MAX ID = " + merchantService.getMaxId());
+		
 	}
 	
 

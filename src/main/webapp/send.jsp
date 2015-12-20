@@ -54,7 +54,6 @@
 				out.print("<td>" + pl.getStatus());
 				out.print("</tr>");
 			}
-			
 			out.print("<tr>Residue : " + sum + "</tr>");
 		%>
 	</table>
