@@ -1,21 +1,90 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>New Payment</title>
-		<link rel="stylesheet" type="text/css" href="web.css" /> 
-	</head>
-	
-	<body>
-		<h1>New Payment</h1>
-		<form action="newPayment.jsp" method="POST">
-    		<table>
-   				<tr><td>Customer Id: <td><input type="text" name="customerId"/>
-   				<tr><td>Merchant Id: <td><input type="text" name="merchantId"/>
-   				<tr><td>Goods: <td><input type="text" name="goods"/>
-   				<tr><td>Sum Payed: <td><input type="text" name="sum"/>
-			</table>
-    		<input type="submit" value="Submit" class="button" />  
-			</form>	
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>New Payment</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="page-header">
+			<div class="well">
+				<h1 align="center">Cash Management System</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="list-group">
+					<h3 align="center">Customers</h3>
+					<a href="customersList.jsp" class="list-group-item" align="center">Show
+						list of Customers</a>
+					</li> <a href="NewCustomer.html" class="list-group-item"
+						align="center">Create new Customer</a>
+					</li>
+					<h3 align="center">Merchants</h3>
+					<a href="merchantsList.jsp" class="list-group-item" align="center">Show
+						list of Merchants</a>
+					</li> <a href="NewMerchant.html" class="list-group-item" align="center">Create
+						new Merchant</a>
+					</li>
+					<h3 align="center">Payments</h3>
+					<a href="paymentsList.jsp" class="list-group-item" align="center">Show
+						list of Payments</a>
+					</li> <a href="NewPayment.html" class="list-group-item active" align="center">Create
+						new Payment</a>
+					</li>
+					<h3 align="center">Pay Lists</h3>
+					<a href="showPayLists.jsp" class="list-group-item" align="center">Show
+						all Pay Lists</a>
+					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+						align="center">Work out Pay Lists</a>
+					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+						align="center">Sending money page</a>
+					</li>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<h3 align="center">Create new Payment</h3>
+
+				<form action="newPayment.jsp" method="POST" role="form-horizontal">
+
+					<div class="form-group">
+						<label for="name">Customer Id:</label> <input type="text"
+							class="form-control" name="customerId" placeholder="Enter Customer Id">
+					</div>
+					<div class="form-group">
+						<label for="name">Merchant Id:</label> <input type="text"
+							class="form-control" name="merchantId" placeholder="Enter Merchant Id">
+					</div>
+					<div class="form-group">
+						<label for="goods">Goods:</label> <input type="text"
+							class="form-control" name="goods" placeholder="Enter Goods">
+					</div>
+					<div class="form-group">
+						<label for="sum">Sum Payed:</label> <input type="text"
+							class="form-control" name="sum" placeholder="Enter Sum Payed">
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			</form>
+
+		</div>
+	</div>
+	</div>
+
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.js"></script>
+</body>
 </html>
+

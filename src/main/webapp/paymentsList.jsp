@@ -35,7 +35,7 @@
 						new Merchant</a>
 					</li>
 					<h3 align="center">Payments</h3>
-					<a href="paymentsList.jsp" class="list-group-item" align="center">Show
+					<a href="paymentsList.jsp" class="list-group-item active" align="center">Show
 						list of Payments</a>
 					</li> <a href="NewPayment.html" class="list-group-item" align="center">Create
 						new Payment</a>

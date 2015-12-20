@@ -1,29 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>New Merchant</title>
-		<link rel="stylesheet" type="text/css" href="web.css" /> 
-	</head>
-	
-	<body>
-		<h1>New Merchant</h1>
-		<form action="newMerchant.jsp" method="POST">
-    		<table>
-   				<tr><td>Name: <td><input type="text" name="name"/>
-   				<tr><td>Bank: <td><input type="text" name="bank"/>
-   				<tr><td>Swift code: <td><input type="text" name="swift"/>
-   				<tr><td>Account: <td><input type="text" name="account"/>
-   				<tr><td>Charge: <td><input type="text" name="charge"/>
-				<tr><td>Period: <td>
-       			<select name="period">
-          			<option value="7">Weekly</option>
-          			<option value="10">Once a ten day</option>
-          			<option value="30">Monthly</option>
-       			</select>
-   				<tr><td>Min sum: <td><input type="text" name="sum"/>
-			</table>
-    		<input type="submit" value="Submit" class="button" />  
-			</form>	
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>New Customer</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container">
+
+		<div class="page-header">
+			<div class="well">
+				<h1 align="center">Cash Management System</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="list-group">
+					<h3 align="center">Customers</h3>
+					<a href="customersList.jsp" class="list-group-item" align="center">Show
+						list of Customers</a>
+					</li> <a href="NewCustomer.html" class="list-group-item"
+						align="center">Create new Customer</a>
+					</li>
+					<h3 align="center">Merchants</h3>
+					<a href="merchantsList.jsp" class="list-group-item" align="center">Show
+						list of Merchants</a>
+					</li> <a href="NewMerchant.html" class="list-group-item active" align="center">Create
+						new Merchant</a>
+					</li>
+					<h3 align="center">Payments</h3>
+					<a href="paymentsList.jsp" class="list-group-item" align="center">Show
+						list of Payments</a>
+					</li> <a href="NewPayment.html" class="list-group-item" align="center">Create
+						new Payment</a>
+					</li>
+					<h3 align="center">Pay Lists</h3>
+					<a href="showPayLists.jsp" class="list-group-item" align="center">Show
+						all Pay Lists</a>
+					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+						align="center">Work out Pay Lists</a>
+					</li> <a href="workOutPayLists.jsp" class="list-group-item"
+						align="center">Sending money page</a>
+					</li>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<h3 align="center">Create new Merchant</h3>
+
+				<form action="newMerchant.jsp" method="POST" role="form-horizontal">
+					<div class="form-group">
+						<label for="name">Name:</label> <input type="text"
+							class="form-control" name="name" placeholder="Enter Name">
+					</div>
+					<div class="form-group">
+						<label for="name">Bank: :</label> <input type="text"
+							class="form-control" name="bank" placeholder="Enter Bank">
+					</div>
+
+					<div class="form-group">
+						<label for="name">Swift code:</label> <input type="text"
+							class="form-control" name="swift" placeholder="Enter Swift code">
+					</div>
+
+					<div class="form-group">
+						<label for="email">Account:</label> <input type="text"
+							class="form-control" name="account" placeholder="Enter Account">
+					</div>
+					<div class="form-group">
+						<label for="ccno">Charge:</label> <input type="text"
+							class="form-control" name="charge" placeholder="Enter Charge">
+					</div>
+
+					<div class="form-group">
+						<label for="cctype">Period:</label> <select name="period"
+							class="form-control">
+							<option value="7">Weekly</option>
+							<option value="10">Once a ten day</option>
+							<option value="30">Monthly</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="ccno">Min sum:</label> <input type="text"
+							class="form-control" name="sum" placeholder="Enter Charge">
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			</form>
+
+		</div>
+	</div>
+	</div>
+
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.js"></script>
+</body>
 </html>
+
