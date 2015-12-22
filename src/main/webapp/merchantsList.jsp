@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
+					</li> <a href="send.jsp" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -59,6 +59,7 @@
 						<td><b>Bank Charge 
 						<td><b>Charge
 						<td><b>Minimum Sum 
+						<td><b>NeedToSend
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
@@ -74,6 +75,7 @@
 							out.print("<td>" + m.getBankName());
 							out.print("<td>" + m.getCharge());
 							out.print("<td>" + m.getMinSum());
+							out.print("<td>" + m.getNeedToSend());
 							out.print("</tr>");
 						}
 					%>

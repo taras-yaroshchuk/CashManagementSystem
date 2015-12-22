@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
+					</li> <a href="send.jsp" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -54,11 +54,11 @@
 				<h3 align="center">List of Payments</h3>
 				<table class="table table-striped">
 					<tr>
-						<td><b>Merchant Id
-						<td><b>Customer Id
-						<td><b>Goods
-						<td><b>Sum payed
-						<td><b>Charge payed
+						<th>Merchant Id
+						<th>Customer Id
+						<th>Goods
+						<th>Sum payed
+						<th>Charge payed
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
@@ -67,6 +67,7 @@
 								.getBean("paymentServiceImpl");
 
 						java.util.List<com.bionic.edu.Payment> list = paymentService.findAll();
+						
 						for (com.bionic.edu.Payment p : list) {
 							out.print("<tr>");
 							out.print("<td>" + p.getMerchantId());

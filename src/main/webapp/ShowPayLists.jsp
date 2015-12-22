@@ -45,22 +45,24 @@
 						align="center">Show all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item" align="center">Sending
+					</li> <a href="send.jsp" class="list-group-item" align="center">Sending
 						money page</a>
 					</li>
 				</div>
 			</div>
 			<div class="col-sm-8">
 				<h3 align="center">Pay List</h3>
-				<form action="updatePayList.jsp" method="POST" role="form-horizontal">
+				<form action="updatePayList.jsp" method="POST"
+					role="form-horizontal">
 					<table class="table table-striped">
 
 						<tr>
-							<td><b>Merchant Id
-									<td><b>Sum Sent
-											<td><b>Sent Date
-													<td><b>Priority
-															<td><b>Status 
+							<th>Merchant Id 
+							<th>Sum Sent
+							<th>Formed Date
+							<th>Sent Date
+							<th>Priority
+							<th>Status
 						</tr>
 
 						<%
@@ -68,16 +70,19 @@
 									"spring/application-config.xml");
 							com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
 									.getBean("payListServiceImpl");
+							
 							java.util.List<com.bionic.edu.PayList> list = payListService.findAll();
+							
 							for (com.bionic.edu.PayList pl : list) {
+								int id = pl.getId();
 								out.print("<tr>");
-								int merchId = pl.getMerchantId();
-								out.print("<td>" + merchId);
+								out.print("<td>" + pl.getMerchantId());
 								out.print("<td>" + pl.getSumSent());
+								out.print("<td>" + pl.getFormedDate());
 								out.print("<td>" + pl.getSentDate());
 								if (pl.getStatus().equals("NotPaid")) {
-									out.print("<td><input type=\"number\" name=\"" + merchId + "\" min=\"0\" "
-											+ " max=\"30\" size=\"1\" value=\"" + pl.getPriority() + "\">");
+									out.print("<td><input type=\"number\" name=\"" + id + "\" min=\"0\" "
+											+ " max=\"40\" size=\"1\" value=\"" + pl.getPriority() + "\">");
 								} else {
 									out.print("<td>" + pl.getPriority());
 								}
@@ -87,7 +92,8 @@
 						%>
 
 					</table>
-					<button type="submit" class="btn btn-primary btn-block">Update priorities</button>
+					<button type="submit" class="btn btn-primary btn-block">Update
+						priorities</button>
 				</form>
 			</div>
 		</div>

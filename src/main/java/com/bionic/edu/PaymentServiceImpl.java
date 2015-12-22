@@ -1,10 +1,13 @@
 package com.bionic.edu;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.inject.*;
 import javax.persistence.TypedQuery;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.*;
 import org.springframework.transaction.annotation.Transactional;
 
 @Named
@@ -27,6 +30,35 @@ public class PaymentServiceImpl implements PaymentService{
 	@Transactional
 	public void save(Payment payment) {
 		paymentDao.save(payment);
+	}
+
+	@Transactional //TODO test this
+	public Payment add(int customerId, int merchantId, String goods, Double sum) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-config.xml");
+		MerchantService merchantService = (MerchantService) context.getBean("merchantServiceImpl");
+		
+		Payment payment = new Payment();
+		java.util.Date utilDate = new java.util.Date();
+		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+		
+		Merchant merchant = merchantService.findById(merchantId);
+		Double chargePayed = (sum / 100) * merchant.getCharge();
+		Double accuracyChargePayed = new BigDecimal(chargePayed)
+				.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+		
+		payment.setChargePayed(accuracyChargePayed);
+		payment.setDt(new java.sql.Timestamp(sqlDate.getTime()));
+		payment.setCustomerId(customerId);
+		payment.setMerchantId(merchantId);
+		payment.setSumPayed(sum);
+		payment.setGoods(goods);
+		
+		merchant.setNeedToSend(merchant.getNeedToSend() + sum - chargePayed);
+
+		merchantService.save(merchant);
+		
+		paymentDao.save(payment);
+		return payment;
 	}
 	
 

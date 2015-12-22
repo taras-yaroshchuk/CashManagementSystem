@@ -9,4 +9,6 @@ public interface PayListService {
 	public List<PayList> findAll();
 	public List<PayList> findNotPaid();
 	public List<PayList> getSortedList();
+	public void workOutPayLists();
+	public void sendMoney(Double sum);
 }

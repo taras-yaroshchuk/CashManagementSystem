@@ -7,4 +7,5 @@ public interface PaymentService {
 	public Payment findById(int id);
 	public List<Payment> findAll();
 	public void save(Payment payment);
+	public Payment add(int customerId,int merchantId, String goods, Double sum);
 }

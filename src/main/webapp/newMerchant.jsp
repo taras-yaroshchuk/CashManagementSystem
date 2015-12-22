@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
+					</li> <a href="send.jsp" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -64,18 +64,17 @@
 								"spring/application-config.xml");
 						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
 								.getBean("merchantServiceImpl");
-						com.bionic.edu.Merchant merchant = new com.bionic.edu.Merchant();
-						merchant.setName(request.getParameter("name"));
-						merchant.setBankName(request.getParameter("bank"));
-						merchant.setSwift(request.getParameter("swift"));
-						merchant.setAccount(request.getParameter("account"));
-						merchant.setCharge(Double.valueOf(request.getParameter("charge")));
-						merchant.setPeriod(Short.valueOf(request.getParameter("period")));
-						merchant.setMinSum(Double.valueOf(request.getParameter("sum")));
-						java.util.Date utilDate = new java.util.Date();
-						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-						merchant.setLastSent(sqlDate);
-						merchantService.save(merchant);
+						
+						String name = request.getParameter("name");
+						String bank = request.getParameter("bank");
+						String swift = request.getParameter("swift");
+						String account = request.getParameter("account");
+						Double charge = Double.valueOf(request.getParameter("charge"));
+						Short period = Short.valueOf(request.getParameter("period"));
+						Double sum = Double.valueOf(request.getParameter("sum"));
+						
+						
+						com.bionic.edu.Merchant merchant = merchantService.add(name, bank, swift, account, charge, period, sum);
 
 						out.print("<tr>");
 						out.print("<td>" + merchant.getName());

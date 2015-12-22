@@ -60,5 +60,22 @@ public class MerchantServiceImpl implements MerchantService {
 	public int getMaxId() {
 		return merchantDao.getMaxId();
 	}
+	
+	@Transactional
+	public Merchant add(String name, String bank, String swift, String account, Double charge,Short period,Double sum) {
+		Merchant merchant = new Merchant();
+		merchant.setName(name);
+		merchant.setBankName(bank);
+		merchant.setSwift(swift);
+		merchant.setAccount(account);
+		merchant.setCharge(charge);
+		merchant.setPeriod(period);
+		merchant.setMinSum(sum);
+		java.util.Date utilDate = new java.util.Date();
+		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+		merchant.setLastSent(sqlDate);
+		merchantDao.save(merchant);
+		return merchant;
+	}
 
 }

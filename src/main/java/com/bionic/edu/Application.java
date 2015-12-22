@@ -61,15 +61,22 @@ public class Application {
 
 		// application.printMerchantsOfCustomer(3);
 
-		//application.test();
+		application.test();
 		
-		application.getReadyToBePayed();
+		//application.getReadyToBePayed();
 	}
 
 	
 
 
 	private void test() {
+
+//		Short s = 10;
+//		Merchant me = merchantService.add("q","w","e","r",1d,s,1d);
+//		System.out.println("!!!!!!!!!!!!" + me.getId());
+		
+		paymentService.add(2, 3, "Something", 500d);
+		
 		Random rand = new Random();
 		for(Merchant m: merchantService.findAll()) {
 			m.setSent(1000 + rand.nextInt(5000));

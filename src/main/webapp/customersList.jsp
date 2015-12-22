@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>List of Customers</title>
-
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -23,8 +22,8 @@
 			<div class="col-sm-3">
 				<div class="list-group">
 					<h3 align="center">Customers</h3>
-					<a href="customersList.jsp" class="list-group-item active" align="center">Show
-						list of Customers</a>
+					<a href="customersList.jsp" class="list-group-item active"
+						align="center">Show list of Customers</a>
 					</li> <a href="NewCustomer.html" class="list-group-item" align="center">Create
 						new Customer</a>
 					</li>
@@ -45,29 +44,29 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
-						align="center">Sending money page</a>
+					</li> <a href="send.jsp" class="list-group-item" align="center">Sending
+						money page</a>
 					</li>
 				</div>
 			</div>
 			<div class="col-sm-8">
 				<h3 align="center">List of Customers</h3>
-				<table class="table table-striped">
+				<table class="table table-striped" >
 					<tr>
-						<td><b>Name
-						<td><b>Address
-						<td><b>Email
-						<td><b>CCNo
-						<td><b>CCType
+						<th>Name
+						<th>Address
+						<th>Email
+						<th>CCNo
+						<th>CCType
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
 						com.bionic.edu.CustomerService customerService = (com.bionic.edu.CustomerService) context
 								.getBean("customerServiceImpl");
-	
+
 						java.util.List<com.bionic.edu.Customer> list = customerService.findAll();
-						
+
 						for (com.bionic.edu.Customer c : list) {
 							out.print("<tr>");
 							out.print("<td>" + c.getName());
@@ -83,14 +82,13 @@
 			</div>
 		</div>
 	</div>
-
-
-
+	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.js"></script>
+	
 </body>
 </html>
 

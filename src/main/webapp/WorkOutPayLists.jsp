@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item active"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item" align="center">Sending
+					</li> <a href="send.jsp" class="list-group-item" align="center">Sending
 						money page</a>
 					</li>
 				</div>
@@ -55,11 +55,12 @@
 				<table class="table table-striped">
 
 					<tr>
-						<td><b>Merchant Id 
-						<td><b>Sum Sent
-						<td><b>Sent Date
-						<td><b>Priority
-						<td><b>Status 
+						<th>Merchant Id 
+						<th>Sum Sent
+						<th>Formed Date
+						<th>Sent Date
+						<th>Priority
+						<th>Status 
 					</tr>
 					
 					<%
@@ -67,44 +68,17 @@
 								"spring/application-config.xml");
 						com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
 								.getBean("payListServiceImpl");
-						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
-								.getBean("merchantServiceImpl");
 
-						java.util.List<com.bionic.edu.PayList> notPaidPaymentLists = payListService.findNotPaid();
 
-						java.util.Map<Integer, com.bionic.edu.PayList> notPaidPLMap = new java.util.HashMap();
-						for (com.bionic.edu.PayList pl : notPaidPaymentLists) {
-							notPaidPLMap.put(pl.getMerchantId(), pl);
-						}
-
-						java.util.List<com.bionic.edu.Merchant> merchants = merchantService.findReadyToBePayed();
-						java.util.Date utilDate = new java.util.Date();
-						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-						java.sql.Timestamp timestamp = new java.sql.Timestamp(sqlDate.getTime());
-
-						for (com.bionic.edu.Merchant merch : merchants) {
-							com.bionic.edu.PayList pl = new com.bionic.edu.PayList();
-							Integer merchantId = merch.getId();
-							pl.setMerchantId(merchantId);
-							pl.setSentDate(timestamp);
-							pl.setStatus("NotPaid");
-							pl.setSumSent(merch.getNeedToSend());
-							pl.setPriority(1);
-
-							com.bionic.edu.PayList notPaidPL = notPaidPLMap.get(merchantId);
-							if (notPaidPL != null) {
-								notPaidPL.setStatus("Modified");
-								payListService.save(notPaidPL);
-								pl.setPriority(notPaidPL.getPriority() + 1);
-							}
-
-							payListService.save(pl);
-						}
+						payListService.workOutPayLists();
+						
 						java.util.List<com.bionic.edu.PayList> list = payListService.findNotPaid();
+						
 						for (com.bionic.edu.PayList payList : list) {
 							out.print("<tr>");
 							out.print("<td>" + payList.getMerchantId());
 							out.print("<td>" + payList.getSumSent());
+							out.print("<td>" + payList.getFormedDate());
 							out.print("<td>" + payList.getSentDate());
 							out.print("<td>" + payList.getPriority());
 							out.print("<td>" + payList.getStatus());

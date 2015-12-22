@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
+					</li> <a href="send.jsp" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
@@ -65,34 +65,14 @@
 								"spring/application-config.xml");
 						com.bionic.edu.PaymentService paymentService = (com.bionic.edu.PaymentService) context
 								.getBean("paymentServiceImpl");
-						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
-								.getBean("merchantServiceImpl");
 						
-						com.bionic.edu.Payment payment = new com.bionic.edu.Payment();
+						Integer customerId = Integer.valueOf(request.getParameter("customerId"));
+						Integer merchantId = Integer.valueOf(request.getParameter("merchantId"));
+						String goods = request.getParameter("goods");
+						Double sum = Double.valueOf(request.getParameter("sum"));
+						
+						com.bionic.edu.Payment payment = paymentService.add(customerId, merchantId, goods, sum);
 
-						payment.setCustomerId(Integer.valueOf(request.getParameter("customerId")));
-
-						Integer merchId = Integer.valueOf(request.getParameter("merchantId"));
-						payment.setMerchantId(merchId);
-						payment.setGoods(request.getParameter("goods"));
-
-						Double sumPayed = Double.valueOf(request.getParameter("sum"));
-						payment.setSumPayed(sumPayed);
-
-						java.util.Date utilDate = new java.util.Date();
-						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-						payment.setDt(new java.sql.Timestamp(sqlDate.getTime()));
-
-						com.bionic.edu.Merchant merchant = merchantService.findById(merchId);
-						Double chargePayed = (sumPayed / 100) * merchant.getCharge();
-						Double accuracyChargePayed = new java.math.BigDecimal(chargePayed)
-								.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
-						payment.setChargePayed(accuracyChargePayed);
-
-						merchant.setNeedToSend(merchant.getNeedToSend() + sumPayed - chargePayed);
-
-						merchantService.save(merchant);
-						paymentService.save(payment);
 
 						out.print("<tr>");
 						out.print("<td>" + payment.getCustomerId());

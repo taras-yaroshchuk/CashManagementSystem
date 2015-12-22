@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item" align="center">Sending
+					</li> <a href="send.jsp" class="list-group-item" align="center">Sending
 						money page</a>
 					</li>
 				</div>
@@ -55,33 +55,37 @@
 				<table class="table table-striped">
 
 					<tr>
-						<td><b>Merchant Id 
-						<td><b>Sum Sent
-						<td><b>Sent Date
-						<td><b>Priority
-						<td><b>Status 
+						<th>Merchant Id 
+						<th>Sum sent
+						<th>Formed Date
+						<th>Sent Date
+						<th>Priority
+						<th>Status
 					</tr>
-					
+
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
 						com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
 								.getBean("payListServiceImpl");
-		
+
 						java.util.List<com.bionic.edu.PayList> list = payListService.findNotPaid();
+						
 						for (com.bionic.edu.PayList pl : list) {
-							int merchId = pl.getMerchantId();
-							String merchantId = String.valueOf(merchId);
-							Integer priority = Integer.valueOf(request.getParameter(merchantId));
+							int StringId = pl.getId();
+							String id = String.valueOf(StringId);
+							Integer priority = Integer.valueOf(request.getParameter(id));
 							pl.setPriority(priority);
+							payListService.save(pl);
+							
 							out.print("<tr>");
-							out.print("<td>" + merchId);
+							out.print("<td>" + pl.getMerchantId());
 							out.print("<td>" + pl.getSumSent());
+							out.print("<td>" + pl.getFormedDate());
 							out.print("<td>" + pl.getSentDate());
 							out.print("<td>" + priority);
 							out.print("<td>" + pl.getStatus());
 							out.print("</tr>");
-							payListService.save(pl);
 						}
 					%>
 				</table>

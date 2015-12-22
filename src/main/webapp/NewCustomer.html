@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item"
+					</li> <a href="send.jsp" class="list-group-item"
 						align="center">Sending money page</a>
 					</li>
 				</div>
