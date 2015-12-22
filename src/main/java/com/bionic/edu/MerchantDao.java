@@ -7,5 +7,5 @@ public interface MerchantDao {
 	public int getMaxId();
 	public void save(Merchant merchant);
 	public List<Merchant> findAll();
-	public List<Merchant> findReadyToBePayed();
+	public List<Merchant> findSatisfiedByMinsum();
 }

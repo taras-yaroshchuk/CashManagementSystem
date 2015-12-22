@@ -67,6 +67,7 @@
 								.getBean("paymentServiceImpl");
 						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
 								.getBean("merchantServiceImpl");
+						
 						com.bionic.edu.Payment payment = new com.bionic.edu.Payment();
 
 						payment.setCustomerId(Integer.valueOf(request.getParameter("customerId")));

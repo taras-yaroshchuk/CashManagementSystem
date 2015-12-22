@@ -66,17 +66,14 @@
 						com.bionic.edu.CustomerService customerService = (com.bionic.edu.CustomerService) context
 								.getBean("customerServiceImpl");
 
-						com.bionic.edu.Customer customer = new com.bionic.edu.Customer();
-						customer.setName(request.getParameter("name"));
-						customer.setAddress(request.getParameter("address"));
-						customer.setEmail(request.getParameter("email"));
-						customer.setCcNo(request.getParameter("ccno"));
-						customer.setCcType(request.getParameter("cctype"));
-						java.util.Date utilDate = new java.util.Date();
-						java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-						customer.setMaturity(sqlDate);
-						customerService.save(customer);
-
+						String name = request.getParameter("name");
+						String address = request.getParameter("address");
+						String email = request.getParameter("email");
+						String ccno = request.getParameter("ccno");
+						String cctype = request.getParameter("cctype");
+						
+						com.bionic.edu.Customer customer = customerService.add(name, address, email, ccno, cctype);
+						
 						out.print("<tr>");
 						out.print("<td>" + customer.getName());
 						out.print("<td>" + customer.getAddress());

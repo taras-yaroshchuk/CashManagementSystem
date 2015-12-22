@@ -67,6 +67,7 @@
 								.getBean("merchantServiceImpl");
 						
 						java.util.List<com.bionic.edu.Merchant> list = merchantService.findAll();
+						
 						for (com.bionic.edu.Merchant m : list) {
 							out.print("<tr>");
 							out.print("<td>" + m.getName());

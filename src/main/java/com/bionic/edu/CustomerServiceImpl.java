@@ -24,5 +24,22 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> findAll() {
 		return customerDao.findAll();
 	}
+
+	@Transactional
+	public Customer add(String name, String address, String email, String ccno, String cctype) {
+		Customer customer = new Customer();
+		java.util.Date utilDate = new java.util.Date();
+		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+		customer.setName(name);
+		customer.setAddress(address);
+		customer.setEmail(email);
+		customer.setCcNo(ccno);
+		customer.setCcType(cctype);
+		customer.setMaturity(sqlDate);
+		customerDao.save(customer);
+		
+		return customer;
+	}
 	
 }

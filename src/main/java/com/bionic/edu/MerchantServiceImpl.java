@@ -1,5 +1,7 @@
 package com.bionic.edu;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,7 +30,30 @@ public class MerchantServiceImpl implements MerchantService {
 	}
 
 	public List<Merchant> findReadyToBePayed() {
-		return merchantDao.findReadyToBePayed();
+		List<Merchant> listM = merchantDao.findSatisfiedByMinsum();
+
+		List<Merchant> readyToBePayed = new ArrayList<Merchant>();
+
+		for (Merchant merch : listM) {
+			Short period = merch.getPeriod();
+
+			Calendar cal = Calendar.getInstance();
+
+			java.util.Date utilDate = new java.util.Date();
+			java.sql.Date nowDate = new java.sql.Date(utilDate.getTime());
+
+			java.sql.Date lastSentDate = merch.getLastSent();
+
+			cal.setTime(lastSentDate);
+			cal.add(Calendar.DAY_OF_YEAR, period);
+
+			java.sql.Date needToSentDate = new java.sql.Date(cal.getTimeInMillis());
+
+			if (needToSentDate.compareTo(nowDate) <= 0) {
+				readyToBePayed.add(merch);
+			}
+		}
+		return readyToBePayed;
 	}
 
 

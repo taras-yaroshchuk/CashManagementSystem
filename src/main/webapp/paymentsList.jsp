@@ -69,7 +69,7 @@
 						java.util.List<com.bionic.edu.Payment> list = paymentService.findAll();
 						for (com.bionic.edu.Payment p : list) {
 							out.print("<tr>");
-							out.print("<td>" + p.getCustomerId());
+							out.print("<td>" + p.getMerchantId());
 							out.print("<td>" + p.getCustomerId());
 							out.print("<td>" + p.getGoods());
 							out.print("<td>" + p.getSumPayed());

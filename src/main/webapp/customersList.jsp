@@ -67,6 +67,7 @@
 								.getBean("customerServiceImpl");
 	
 						java.util.List<com.bionic.edu.Customer> list = customerService.findAll();
+						
 						for (com.bionic.edu.Customer c : list) {
 							out.print("<tr>");
 							out.print("<td>" + c.getName());
