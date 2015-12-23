@@ -51,7 +51,7 @@
 			</div>
 			<div class="col-sm-8">
 				<h3 align="center">List of Customers</h3>
-				<table  class="table table-striped" > 
+				<table  class="table table-striped table-bordered" > 
 					<tr>
 						<th>Name
 						<th>Address

@@ -54,10 +54,10 @@
 				<h3 align="center">Pay List</h3>
 				<form action="updatePayList.jsp" method="POST"
 					role="form-horizontal">
-					<table class="table table-striped">
+					<table class="table table-striped table-bordered">
 
 						<tr>
-							<th>Merchant Id 
+							<th>Merchant Id
 							<th>Sum Sent
 							<th>Formed Date
 							<th>Sent Date
@@ -70,9 +70,9 @@
 									"spring/application-config.xml");
 							com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
 									.getBean("payListServiceImpl");
-							
+
 							java.util.List<com.bionic.edu.PayList> list = payListService.findAll();
-							
+
 							for (com.bionic.edu.PayList pl : list) {
 								int id = pl.getId();
 								out.print("<tr>");
