@@ -61,9 +61,11 @@ public class Application {
 
 		// application.printMerchantsOfCustomer(3);
 
-		application.test();
+//		application.test();
 		
 		//application.getReadyToBePayed();
+		
+		application.addMerchant();
 	}
 
 	

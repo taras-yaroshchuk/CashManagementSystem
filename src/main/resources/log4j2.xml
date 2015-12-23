@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+	<appenders>
+
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level	%logger{36} - %msg%n" />
+		</Console>
+
+		<RollingFile name="FileDaoImplAppender" fileName="logs/daoImpl.log"
+			filePattern="/logs/daoImpl-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{dd.MM.yyyy HH:mm:ss.SSS} [%t] %-5level %c{36} %l:%msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy min="1" max="4" />
+		</RollingFile>
+
+		<RollingFile name="FileMerchantDaoImplAppender" fileName="logs/merchantDaoImpl.log"
+			filePattern="/logs/daoImpl-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{dd.MM.yyyy HH:mm:ss.SSS} [%t] %-5level %c{36} %l:%msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy min="1" max="4" />
+		</RollingFile>
+
+		<RollingFile name="FileCustomerDaoImplAppender" fileName="logs/customerDaoImpl.log"
+			filePattern="/logs/daoImpl-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{dd.MM.yyyy HH:mm:ss.SSS} [%t] %-5level %c{36} %l:%msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy min="1" max="4" />
+		</RollingFile>
+
+		<RollingFile name="FilePaymentDaoImplAppender" fileName="logs/paymentDaoImpl.log"
+			filePattern="/logs/daoImpl-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{dd.MM.yyyy HH:mm:ss.SSS} [%t] %-5level %c{36} %l:%msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy min="1" max="4" />
+		</RollingFile>
+
+		<RollingFile name="FilePayListDaoImplAppender" fileName="logs/payListDaoImpl.log"
+			filePattern="/logs/daoImpl-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<pattern>
+					%d{dd.MM.yyyy HH:mm:ss.SSS} [%t] %-5level %c{36} %l:%msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+
+			<DefaultRolloverStrategy min="1" max="4" />
+		</RollingFile>
+
+
+
+
+	</appenders>
+
+	<loggers>
+		<root level="trace">
+			<appender-ref ref="Console" />
+		</root>
+
+		<logger level="trace" additivity="false"
+			name="com.bionic.edu.CustomerDaoImpl">
+			<appender-ref ref="FileDaoImplAppender" />
+			<appender-ref ref="FileCustomerDaoImplAppender" />
+		</logger>
+
+		<logger level="trace" additivity="false"
+			name="com.bionic.edu.MerchantDaoImpl">
+			<appender-ref ref="FileDaoImplAppender" />
+			<appender-ref ref="FileMerchantDaoImplAppender" />
+		</logger>
+
+		<logger level="trace" additivity="false"
+			name="com.bionic.edu.PayListDaoImpl">
+			<appender-ref ref="FileDaoImplAppender" />
+			<appender-ref ref="FilePayListDaoImplAppender" />
+		</logger>
+
+		<logger level="trace" additivity="false"
+			name="com.bionic.edu.PaymentDaoImpl">
+			<appender-ref ref="FileDaoImplAppender" />
+			<appender-ref ref="FilePaymentDaoImplAppender" />
+		</logger>
+	</loggers>
+</configuration>

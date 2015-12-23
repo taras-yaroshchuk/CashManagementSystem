@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="col-sm-8">
-				<h3 align="center">Pay List</h3>
+				<h3 align="center">Pay Lists</h3>
 				<form action="updatePayList.jsp" method="POST"
 					role="form-horizontal">
 					<table class="table table-striped table-bordered">
