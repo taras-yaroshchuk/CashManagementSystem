@@ -73,9 +73,9 @@
 							out.print("<tr>");
 							out.print("<td>" + m.getName());
 							out.print("<td>" + m.getBankName());
-							out.print("<td>" + m.getCharge());
-							out.print("<td>" + m.getMinSum());
-							out.print("<td>" + m.getNeedToSend());
+							out.print("<td  align=\"right\" >" + m.getCharge());
+							out.print("<td  align=\"right\" >" + m.getMinSum());
+							out.print("<td  align=\"right\" >" + m.getNeedToSend());
 							out.print("</tr>");
 						}
 					%>

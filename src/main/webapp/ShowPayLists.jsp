@@ -76,8 +76,8 @@
 							for (com.bionic.edu.PayList pl : list) {
 								int id = pl.getId();
 								out.print("<tr>");
-								out.print("<td>" + pl.getMerchantId());
-								out.print("<td>" + pl.getSumSent());
+								out.print("<td align=\"right\" >" + pl.getMerchantId());
+								out.print("<td align=\"right\" >" + pl.getSumSent());
 								out.print("<td>" + pl.getFormedDate());
 								out.print("<td>" + pl.getSentDate());
 								if (pl.getStatus().equals("NotPaid")) {

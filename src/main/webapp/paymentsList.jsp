@@ -8,13 +8,13 @@
 
 <title>List of Payments</title>
 
- <link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" />
 
 <script type="text/javascript"
 	src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
- 
- 
+
+
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function() {
 		$('#paymentsTable').DataTable();
@@ -24,14 +24,16 @@
 </head>
 <body>
 	<div class="container">
-
 		<div class="page-header">
 			<div class="well">
 				<h1 align="center">Cash Management System</h1>
 			</div>
 		</div>
+
 		<div class="row">
+
 			<div class="col-sm-3">
+
 				<div class="list-group">
 					<h3 align="center">Customers</h3>
 					<a href="customersList.jsp" class="list-group-item" align="center">Show
@@ -84,11 +86,11 @@
 
 							for (com.bionic.edu.Payment p : list) {
 								out.print("<tr>");
-								out.print("<td>" + p.getMerchantId());
-								out.print("<td>" + p.getCustomerId());
+								out.print("<td  align=\"right\" >" + p.getMerchantId());
+								out.print("<td  align=\"right\" >" + p.getCustomerId());
 								out.print("<td>" + p.getGoods());
-								out.print("<td>" + p.getSumPayed());
-								out.print("<td>" + p.getChargePayed());
+								out.print("<td  align=\"right\" >" + p.getSumPayed());
+								out.print("<td  align=\"right\" >" + p.getChargePayed());
 								out.print("</tr>");
 							}
 						%>

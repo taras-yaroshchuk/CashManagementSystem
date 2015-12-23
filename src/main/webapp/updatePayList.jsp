@@ -51,11 +51,11 @@
 				</div>
 			</div>
 			<div class="col-sm-8">
-				<h3 align="center">Updated Pay Lists</h3>
+				<h3 align="center">Next Pay Lists were updated:</h3>
 				<table class="table table-striped table-bordered">
 
 					<tr>
-						<th>Merchant Id 
+						<th>Merchant Id
 						<th>Sum sent
 						<th>Formed Date
 						<th>Sent Date
@@ -70,22 +70,25 @@
 								.getBean("payListServiceImpl");
 
 						java.util.List<com.bionic.edu.PayList> list = payListService.findNotPaid();
-						
+
 						for (com.bionic.edu.PayList pl : list) {
 							int StringId = pl.getId();
 							String id = String.valueOf(StringId);
-							Integer priority = Integer.valueOf(request.getParameter(id));
-							pl.setPriority(priority);
-							payListService.save(pl);
-							
-							out.print("<tr>");
-							out.print("<td>" + pl.getMerchantId());
-							out.print("<td>" + pl.getSumSent());
-							out.print("<td>" + pl.getFormedDate());
-							out.print("<td>" + pl.getSentDate());
-							out.print("<td>" + priority);
-							out.print("<td>" + pl.getStatus());
-							out.print("</tr>");
+							Integer oldPriority = pl.getPriority();
+							Integer newPriority = Integer.valueOf(request.getParameter(id));
+							if (newPriority != oldPriority) {
+								pl.setPriority(newPriority);
+								payListService.save(pl);
+
+								out.print("<tr>");
+								out.print("<td>" + pl.getMerchantId());
+								out.print("<td>" + pl.getSumSent());
+								out.print("<td>" + pl.getFormedDate());
+								out.print("<td>" + pl.getSentDate());
+								out.print("<td>" + newPriority);
+								out.print("<td>" + pl.getStatus());
+								out.print("</tr>");
+							}
 						}
 					%>
 				</table>
