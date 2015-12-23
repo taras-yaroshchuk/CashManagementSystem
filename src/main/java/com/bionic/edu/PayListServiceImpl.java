@@ -1,5 +1,6 @@
 package com.bionic.edu;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,11 +51,15 @@ public class PayListServiceImpl implements PayListService {
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		java.sql.Timestamp timestamp = new java.sql.Timestamp(sqlDate.getTime());
 
+		Map<Integer, PayList> notPaidPlMap = new HashMap();
+
 		List<PayList> notPaidPaymentLists = payListService.findNotPaid();
 		for (PayList pl : notPaidPaymentLists) {
 			int priority = pl.getPriority();
 			pl.setPriority(priority + 1);
 			payListService.save(pl);
+
+			notPaidPlMap.put(pl.getMerchantId(), pl);
 		}
 
 		List<Merchant> merchants = merchantService.findReadyToBePayed();
@@ -64,7 +69,21 @@ public class PayListServiceImpl implements PayListService {
 			pl.setMerchantId(merchantId);
 			pl.setFormedDate(timestamp);
 			pl.setStatus("NotPaid");
-			pl.setSumSent(merch.getNeedToSend());
+
+			// Problem with 2 PayLists
+			PayList payList = notPaidPlMap.get(merchantId);
+			if (payList != null) {
+				Double sumSent = merch.getNeedToSend() - payList.getSumSent();
+				if (sumSent >= merch.getMinSum()) {
+					Double accuracySumSent = new BigDecimal(sumSent).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+					pl.setSumSent(accuracySumSent);
+				} else 
+					continue;
+			} else {
+				Double accuracyNeedToSendSum = new BigDecimal(merch.getNeedToSend()).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+				pl.setSumSent(accuracyNeedToSendSum);
+			}
+
 			pl.setPriority(1);
 			merch.setLastSent(sqlDate);
 
@@ -92,15 +111,17 @@ public class PayListServiceImpl implements PayListService {
 				Merchant m = merchantService.findById(pl.getMerchantId());
 				Double needToSend = m.getNeedToSend();
 				m.setNeedToSend(needToSend - sumSent);
+				Double totalSent = m.getSent();
+				m.setSent(totalSent + sumSent);
 				pl.setStatus("Paid");
 				pl.setSentDate(timestamp);
 				merchantService.save(m);
 				payListService.save(pl);
-			} else {
+			} else {  //Is it norm?
 				int priority = pl.getPriority();
 				pl.setPriority(priority + 1);
 				payListService.save(pl);
 			}
-		}	
+		}
 	}
 }

@@ -55,11 +55,11 @@
 				<table class="table table-striped">
 
 					<tr>
-						<td><b>Name
-						<td><b>Bank Charge 
-						<td><b>Charge
-						<td><b>Minimum Sum 
-						<td><b>NeedToSend
+						<th>Name
+						<th>Bank Charge 
+						<th>Charge
+						<th>Minimum Sum 
+						<th>NeedToSend
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(

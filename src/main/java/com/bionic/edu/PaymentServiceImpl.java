@@ -43,8 +43,7 @@ public class PaymentServiceImpl implements PaymentService{
 		
 		Merchant merchant = merchantService.findById(merchantId);
 		Double chargePayed = (sum / 100) * merchant.getCharge();
-		Double accuracyChargePayed = new BigDecimal(chargePayed)
-				.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+		Double accuracyChargePayed = new BigDecimal(chargePayed).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
 		
 		payment.setChargePayed(accuracyChargePayed);
 		payment.setDt(new java.sql.Timestamp(sqlDate.getTime()));
