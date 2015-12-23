@@ -51,7 +51,7 @@
 			</div>
 			<div class="col-sm-8">
 				<h3 align="center">List of Customers</h3>
-				<table class="table table-striped" >
+				<table  class="table table-striped" > 
 					<tr>
 						<th>Name
 						<th>Address
@@ -82,13 +82,13 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.js"></script>
-	
+
 </body>
 </html>
 

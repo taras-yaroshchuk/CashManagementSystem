@@ -90,7 +90,8 @@ public class PayListServiceImpl implements PayListService {
 			if (residue >= 0) {
 				sum = sum - sumSent;
 				Merchant m = merchantService.findById(pl.getMerchantId());
-				m.setNeedToSend(m.getNeedToSend() - pl.getSumSent());
+				Double needToSend = m.getNeedToSend();
+				m.setNeedToSend(needToSend - sumSent);
 				pl.setStatus("Paid");
 				pl.setSentDate(timestamp);
 				merchantService.save(m);
