@@ -75,12 +75,14 @@ public class PayListServiceImpl implements PayListService {
 			if (payList != null) {
 				Double sumSent = merch.getNeedToSend() - payList.getSumSent();
 				if (sumSent >= merch.getMinSum()) {
-					Double accuracySumSent = new BigDecimal(sumSent).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+					Double accuracySumSent = new BigDecimal(sumSent).setScale(3, java.math.RoundingMode.HALF_UP)
+							.doubleValue();
 					pl.setSumSent(accuracySumSent);
-				} else 
+				} else
 					continue;
 			} else {
-				Double accuracyNeedToSendSum = new BigDecimal(merch.getNeedToSend()).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+				Double accuracyNeedToSendSum = new BigDecimal(merch.getNeedToSend())
+						.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
 				pl.setSumSent(accuracyNeedToSendSum);
 			}
 
@@ -116,10 +118,6 @@ public class PayListServiceImpl implements PayListService {
 				pl.setStatus("Paid");
 				pl.setSentDate(timestamp);
 				merchantService.save(m);
-				payListService.save(pl);
-			} else {  //Is it norm?
-				int priority = pl.getPriority();
-				pl.setPriority(priority + 1);
 				payListService.save(pl);
 			}
 		}
