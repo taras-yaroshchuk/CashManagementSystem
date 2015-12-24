@@ -32,7 +32,7 @@ public class PaymentServiceImpl implements PaymentService{
 		paymentDao.save(payment);
 	}
 
-	@Transactional //TODO test this
+	@Transactional 
 	public Payment add(int customerId, int merchantId, String goods, Double sum) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-config.xml");
 		MerchantService merchantService = (MerchantService) context.getBean("merchantServiceImpl");

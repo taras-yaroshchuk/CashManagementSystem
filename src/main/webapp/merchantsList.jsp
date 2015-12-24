@@ -60,6 +60,7 @@
 						<th>Charge
 						<th>Minimum Sum 
 						<th>NeedToSend
+						<th>TotalSent
 					</tr>
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
@@ -76,6 +77,7 @@
 							out.print("<td  align=\"right\" >" + m.getCharge());
 							out.print("<td  align=\"right\" >" + m.getMinSum());
 							out.print("<td  align=\"right\" >" + m.getNeedToSend());
+							out.print("<td  align=\"right\" >" + m.getSent());
 							out.print("</tr>");
 						}
 					%>

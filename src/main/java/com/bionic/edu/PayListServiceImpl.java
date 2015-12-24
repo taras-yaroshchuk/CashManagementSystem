@@ -51,15 +51,11 @@ public class PayListServiceImpl implements PayListService {
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		java.sql.Timestamp timestamp = new java.sql.Timestamp(sqlDate.getTime());
 
-		// Map<Integer, PayList> notPaidPlMap = new HashMap();
-
 		List<PayList> notPaidPaymentLists = payListService.findNotPaid();
 		for (PayList pl : notPaidPaymentLists) {
 			int priority = pl.getPriority();
 			pl.setPriority(priority + 1);
 			payListService.save(pl);
-
-			// notPaidPlMap.put(pl.getMerchantId(), pl);
 		}
 
 		List<Merchant> merchants = merchantService.findReadyToBePayed();

@@ -75,8 +75,8 @@
 
 
 						out.print("<tr>");
-						out.print("<td>" + payment.getCustomerId());
 						out.print("<td>" + payment.getMerchantId());
+						out.print("<td>" + payment.getCustomerId());
 						out.print("<td>" + payment.getGoods());
 						out.print("<td>" + payment.getSumPayed());
 						out.print("<td>" + payment.getChargePayed());
