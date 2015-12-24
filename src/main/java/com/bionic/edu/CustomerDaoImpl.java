@@ -23,10 +23,10 @@ public class CustomerDaoImpl implements CustomerDao{
     public void save(Customer customer){
     	if (customer.getId() == 0) {
     		em.persist(customer);
-    		log.debug("The customer " + customer.getName() +"was persisted.");
+    		log.debug("The customer " + customer.getName() +" was persisted.");
     	} else{
     		em.merge(customer);
-    		log.debug("The customer " + customer.getName() +"was merged.");
+    		log.debug("The customer " + customer.getName() +" was merged.");
     	}
     }
     

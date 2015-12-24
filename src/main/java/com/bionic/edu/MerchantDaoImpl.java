@@ -21,10 +21,10 @@ public class MerchantDaoImpl implements MerchantDao {
 	public void save(Merchant merchant) {
 		if (merchant.getId() == 0) {
 			em.persist(merchant);
-			log.info("The merchant " + merchant.getName() +"was persisted.");
+			log.info("The merchant " + merchant.getName() +" was persisted.");
 		} else {
 			em.merge(merchant);
-			log.debug("The merchant " + merchant.getName() +"was persisted.");
+			log.debug("The merchant " + merchant.getName() +" was persisted.");
 		}
 	}
 

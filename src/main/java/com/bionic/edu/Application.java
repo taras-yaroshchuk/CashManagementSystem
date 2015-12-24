@@ -65,28 +65,32 @@ public class Application {
 		
 		//application.getReadyToBePayed();
 		
-		application.addMerchant();
+//		application.addMerchant();
+		
+//		application.addCustomer();
 	}
 
 	
 
 
 	private void test() {
-
+		List<PayList> paylists = payListService.findByMerchantId(4);
+		System.out.println("!!!!!!!!!!!!" );
+		//payListService.workOutPayLists();
 //		Short s = 10;
 //		Merchant me = merchantService.add("q","w","e","r",1d,s,1d);
 //		System.out.println("!!!!!!!!!!!!" + me.getId());
 		
-		paymentService.add(2, 3, "Something", 500d);
+//		paymentService.add(2, 3, "Something", 500d);
 		
-		Random rand = new Random();
-		for(Merchant m: merchantService.findAll()) {
-			m.setSent(1000 + rand.nextInt(5000));
-			java.util.Date utilDate = new java.util.Date();
-		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-		    m.setLastSent(sqlDate);
-			merchantService.save(m);
-		}
+//		Random rand = new Random();
+//		for(Merchant m: merchantService.findAll()) {
+//			m.setSent(1000 + rand.nextInt(5000));
+//			java.util.Date utilDate = new java.util.Date();
+//		    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+//		    m.setLastSent(sqlDate);
+//			merchantService.save(m);
+//		}
 		
 	}
 	

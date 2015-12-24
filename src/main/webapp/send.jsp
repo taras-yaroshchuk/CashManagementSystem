@@ -15,7 +15,7 @@
 	<div class="container">
 
 		<div class="page-header">
-			<div class="well">
+			<div class="well well-sm">
 				<h1 align="center">Cash Management System</h1>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 						all Pay Lists</a>
 					</li> <a href="workOutPayLists.jsp" class="list-group-item"
 						align="center">Work out Pay Lists</a>
-					</li> <a href="Send.html" class="list-group-item active" align="center">Sending
+					</li> <a href="send.jsp" class="list-group-item active" align="center">Sending
 						money page</a>
 					</li>
 				</div>
@@ -71,7 +71,8 @@
 						for (com.bionic.edu.PayList pl : list) {
 							total += pl.getSumSent();
 						}
-						out.print("<h2>Total sum need to send = " + total + "</h2>");
+						Double accuracyTotal = new java.math.BigDecimal(total).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+						out.print("<h2>Total sum need to send = " + accuracyTotal + "</h2>");
 					%>
 					<div class="form-group">
 						<label for="name">Sum:</label> <input type="text"

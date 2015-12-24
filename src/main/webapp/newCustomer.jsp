@@ -15,7 +15,7 @@
 	<div class="container">
 
 		<div class="page-header">
-			<div class="well">
+			<div class="well well-sm">
 				<h1 align="center">Cash Management System</h1>
 			</div>
 		</div>

@@ -51,7 +51,7 @@ public class PayListServiceImpl implements PayListService {
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 		java.sql.Timestamp timestamp = new java.sql.Timestamp(sqlDate.getTime());
 
-		Map<Integer, PayList> notPaidPlMap = new HashMap();
+		// Map<Integer, PayList> notPaidPlMap = new HashMap();
 
 		List<PayList> notPaidPaymentLists = payListService.findNotPaid();
 		for (PayList pl : notPaidPaymentLists) {
@@ -59,7 +59,7 @@ public class PayListServiceImpl implements PayListService {
 			pl.setPriority(priority + 1);
 			payListService.save(pl);
 
-			notPaidPlMap.put(pl.getMerchantId(), pl);
+			// notPaidPlMap.put(pl.getMerchantId(), pl);
 		}
 
 		List<Merchant> merchants = merchantService.findReadyToBePayed();
@@ -69,28 +69,36 @@ public class PayListServiceImpl implements PayListService {
 			pl.setMerchantId(merchantId);
 			pl.setFormedDate(timestamp);
 			pl.setStatus("NotPaid");
-
-			// Problem with 2 PayLists
-			PayList payList = notPaidPlMap.get(merchantId);
-			if (payList != null) {
-				Double sumSent = merch.getNeedToSend() - payList.getSumSent();
-				if (sumSent >= merch.getMinSum()) {
-					Double accuracySumSent = new BigDecimal(sumSent).setScale(3, java.math.RoundingMode.HALF_UP)
+			pl.setPriority(1);
+			
+			// Problem with a lot of PayLists with one MerchantId
+			List<PayList> paylListsOfMerchant = findByMerchantId(merchantId);
+			if (paylListsOfMerchant != null) {
+				Double totalNeedToSent = merch.getNeedToSend();
+				for (PayList payList : paylListsOfMerchant) {
+					if (payList.getStatus().equals("NotPaid")) {
+						totalNeedToSent -= payList.getSumSent();
+					}
+				}
+				if (totalNeedToSent >= merch.getMinSum()) {
+					Double accuracySumSent = new BigDecimal(totalNeedToSent).setScale(3, java.math.RoundingMode.HALF_UP)
 							.doubleValue();
+					
 					pl.setSumSent(accuracySumSent);
-				} else
-					continue;
+					merch.setLastSent(sqlDate);
+					merchantService.save(merch);
+					payListService.save(pl);
+				}
 			} else {
 				Double accuracyNeedToSendSum = new BigDecimal(merch.getNeedToSend())
 						.setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
+				
 				pl.setSumSent(accuracyNeedToSendSum);
+				merch.setLastSent(sqlDate);
+				merchantService.save(merch);
+				payListService.save(pl);
 			}
 
-			pl.setPriority(1);
-			merch.setLastSent(sqlDate);
-
-			merchantService.save(merch);
-			payListService.save(pl);
 		}
 	}
 

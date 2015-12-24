@@ -14,7 +14,7 @@
 	<div class="container">
 
 		<div class="page-header">
-			<div class="well">
+			<div class="well well-sm">
 				<h1 align="center">Cash Management System</h1>
 			</div>
 		</div>
@@ -22,7 +22,7 @@
 			<div class="col-sm-3">
 				<div class="list-group">
 					<h3 align="center">Customers</h3>
-					<a href="customersList.jsp" class="list-group-item active"
+					<a href="customersList.jsp" class="list-group-item active "
 						align="center">Show list of Customers</a>
 					</li> <a href="NewCustomer.html" class="list-group-item" align="center">Create
 						new Customer</a>
