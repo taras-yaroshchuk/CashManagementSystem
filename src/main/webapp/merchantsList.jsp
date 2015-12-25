@@ -55,6 +55,7 @@
 				<table class="table table-striped table-bordered">
 
 					<tr>
+						<th>Id
 						<th>Name
 						<th>Bank Charge 
 						<th>Charge
@@ -72,6 +73,7 @@
 						
 						for (com.bionic.edu.Merchant m : list) {
 							out.print("<tr>");
+							out.print("<td>" + m.getId());
 							out.print("<td>" + m.getName());
 							out.print("<td>" + m.getBankName());
 							out.print("<td  align=\"right\" >" + m.getCharge());

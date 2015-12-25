@@ -22,8 +22,8 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-		<property name="url" value="jdbc:derby:C:\Users\taras\Documents\workspace\CM;create=true"/> 
-		<!-- <property name="url" value="jdbc:derby:..\CM;create=true"/>  --> 
+		<!--<property name="url" value="jdbc:derby:C:\Users\taras\Documents\workspace\CM;create=true"/> -->  
+		 <property name="url" value="jdbc:derby:C:\Users\taras\Documents\workspace\CashManagementSystem\CM;create=true"/>  
 	</bean>
 	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

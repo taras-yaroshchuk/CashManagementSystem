@@ -53,6 +53,7 @@
 				<h3 align="center">List of Customers</h3>
 				<table class="table table-striped table-bordered">
 					<tr>
+						<th>Id
 						<th>Name
 						<th>Address
 						<th>Email
@@ -69,6 +70,7 @@
 
 						for (com.bionic.edu.Customer c : list) {
 							out.print("<tr>");
+							out.print("<td>" + c.getId());
 							out.print("<td>" + c.getName());
 							out.print("<td>" + c.getAddress());
 							out.print("<td>" + c.getEmail());
