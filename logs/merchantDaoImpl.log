@@ -1,2 +1,0 @@
-24.12.2015 00:00:56.126 [main] INFO  com.bionic.edu.MerchantDaoImpl com.bionic.edu.MerchantDaoImpl.save(MerchantDaoImpl.java:24):The merchant N&Mwas persisted.
-24.12.2015 17:58:26.326 [main] DEBUG com.bionic.edu.MerchantDaoImpl com.bionic.edu.MerchantDaoImpl.findSatisfiedByMinsum(MerchantDaoImpl.java:42):The "findSatisfiedByMinsum" query in MerchantDaoImpl class was executed.

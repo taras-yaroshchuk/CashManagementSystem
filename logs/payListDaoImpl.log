@@ -1,8 +1,0 @@
-24.12.2015 17:58:26.100 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.findNotPaid(PayListDaoImpl.java:50):The "findNotPaid" query in PayListDaoImpl class was executed.
-24.12.2015 17:58:26.120 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 3 was merget.
-24.12.2015 17:58:26.215 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 4 was merget.
-24.12.2015 17:58:26.222 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 16 was merget.
-24.12.2015 17:58:26.229 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 9 was merget.
-24.12.2015 17:58:26.238 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 11 was merget.
-24.12.2015 17:58:26.246 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.save(PayListDaoImpl.java:42):The PayList with merchantId= 4 was merget.
-24.12.2015 18:07:33.264 [main] DEBUG com.bionic.edu.PayListDaoImpl com.bionic.edu.PayListDaoImpl.findByMerchantId(PayListDaoImpl.java:21):The "findByMerchantId" query with id=4 in PayListDaoImpl class was executed.
