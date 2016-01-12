@@ -1,10 +1,12 @@
-package com.bionic.edu;
+package com.bionic.edu.service;
 
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.bionic.edu.Customer;
+import com.bionic.edu.repository.CustomerDao;
 import org.springframework.transaction.annotation.Transactional;
 
 @Named
@@ -12,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Inject
     private CustomerDao customerDao;
     
-    public Customer findById(int id) { 
+    public Customer findById(int id) {
     	return customerDao.findById(id); 
     }
 

@@ -1,4 +1,4 @@
-package com.bionic.edu;
+package com.bionic.edu.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,8 +6,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.TypedQuery;
 
+import com.bionic.edu.Merchant;
+import com.bionic.edu.repository.MerchantDao;
 import org.springframework.transaction.annotation.Transactional;
 
 @Named

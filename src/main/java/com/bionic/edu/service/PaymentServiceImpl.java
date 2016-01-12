@@ -1,11 +1,13 @@
-package com.bionic.edu;
+package com.bionic.edu.service;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import javax.inject.*;
-import javax.persistence.TypedQuery;
 
+import com.bionic.edu.Merchant;
+import com.bionic.edu.Payment;
+import com.bionic.edu.repository.PaymentDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.*;
 import org.springframework.transaction.annotation.Transactional;

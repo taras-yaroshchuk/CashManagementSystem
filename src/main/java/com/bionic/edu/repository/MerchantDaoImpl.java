@@ -1,5 +1,6 @@
-package com.bionic.edu;
+package com.bionic.edu.repository;
 
+import com.bionic.edu.Merchant;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,6 @@
-package com.bionic.edu;
+package com.bionic.edu.repository;
+
+import com.bionic.edu.Payment;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package com.bionic.edu;
+package com.bionic.edu.service;
+
+import com.bionic.edu.Customer;
 
 import java.util.List;
 

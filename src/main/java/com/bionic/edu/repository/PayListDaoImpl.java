@@ -1,9 +1,10 @@
-package com.bionic.edu;
+package com.bionic.edu.repository;
 
 import java.util.List;
 
 import javax.persistence.*;
 
+import com.bionic.edu.PayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;

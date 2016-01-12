@@ -1,4 +1,4 @@
-package com.bionic.edu;
+package com.bionic.edu.model;
 
 import javax.persistence.*;
 
