@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.CustomerService" %>
+<%@ page import="com.bionic.edu.model.Customer" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +65,7 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.CustomerService customerService = (com.bionic.edu.CustomerService) context
+						CustomerService customerService = (CustomerService) context
 								.getBean("customerServiceImpl");
 
 						String name = request.getParameter("name");
@@ -72,7 +74,7 @@
 						String ccno = request.getParameter("ccno");
 						String cctype = request.getParameter("cctype");
 						
-						com.bionic.edu.Customer customer = customerService.add(name, address, email, ccno, cctype);
+						Customer customer = customerService.add(name, address, email, ccno, cctype);
 						
 						out.print("<tr>");
 						out.print("<td>" + customer.getName());

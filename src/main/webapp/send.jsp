@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.PayListService" %>
+<%@ page import="com.bionic.edu.model.PayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +58,7 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.PayListService payListService = (com.bionic.edu.PayListService) context
+						PayListService payListService = (PayListService) context
 								.getBean("payListServiceImpl");
 
 						String sumToPay = request.getParameter("sum");
@@ -65,10 +67,10 @@
 							payListService.sendMoney(sum);
 						}
 
-						java.util.List<com.bionic.edu.PayList> list = payListService.getSortedList();
+						java.util.List<PayList> list = payListService.getSortedList();
 
 						Double total = 0d;
-						for (com.bionic.edu.PayList pl : list) {
+						for (PayList pl : list) {
 							total += pl.getSumSent();
 						}
 						Double accuracyTotal = new java.math.BigDecimal(total).setScale(3, java.math.RoundingMode.HALF_UP).doubleValue();
@@ -93,7 +95,7 @@
 							<th>Status
 						</tr>
 						<%
-							for (com.bionic.edu.PayList pl : list) {
+							for (PayList pl : list) {
 								out.print("<tr>");
 								out.print("<td>" + pl.getMerchantId());
 								out.print("<td>" + pl.getSumSent());

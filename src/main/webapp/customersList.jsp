@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.CustomerService" %>
+<%@ page import="com.bionic.edu.model.Customer" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,12 +65,12 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.CustomerService customerService = (com.bionic.edu.CustomerService) context
+						CustomerService customerService = (CustomerService) context
 								.getBean("customerServiceImpl");
 
-						java.util.List<com.bionic.edu.Customer> list = customerService.findAll();
+						java.util.List<Customer> list = customerService.findAll();
 
-						for (com.bionic.edu.Customer c : list) {
+						for (Customer c : list) {
 							out.print("<tr>");
 							out.print("<td>" + c.getId());
 							out.print("<td>" + c.getName());

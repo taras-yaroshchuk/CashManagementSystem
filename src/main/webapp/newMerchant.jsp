@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.MerchantService" %>
+<%@ page import="com.bionic.edu.model.Merchant" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +64,7 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
+						MerchantService merchantService = (MerchantService) context
 								.getBean("merchantServiceImpl");
 						
 						String name = request.getParameter("name");
@@ -74,7 +76,7 @@
 						Double sum = Double.valueOf(request.getParameter("sum"));
 						
 						
-						com.bionic.edu.Merchant merchant = merchantService.add(name, bank, swift, account, charge, period, sum);
+						Merchant merchant = merchantService.add(name, bank, swift, account, charge, period, sum);
 
 						out.print("<tr>");
 						out.print("<td>" + merchant.getName());

@@ -87,25 +87,25 @@
 		</root>
 
 		<logger level="trace" additivity="false"
-			name="com.bionic.edu.CustomerDaoImpl">
+			name="com.bionic.edu.repository.CustomerDaoImpl">
 			<appender-ref ref="FileDaoImplAppender" />
 			<appender-ref ref="FileCustomerDaoImplAppender" />
 		</logger>
 
 		<logger level="trace" additivity="false"
-			name="com.bionic.edu.MerchantDaoImpl">
+			name="com.bionic.edu.repository.MerchantDaoImpl">
 			<appender-ref ref="FileDaoImplAppender" />
 			<appender-ref ref="FileMerchantDaoImplAppender" />
 		</logger>
 
 		<logger level="trace" additivity="false"
-			name="com.bionic.edu.PayListDaoImpl">
+			name="com.bionic.edu.repository.PayListDaoImpl">
 			<appender-ref ref="FileDaoImplAppender" />
 			<appender-ref ref="FilePayListDaoImplAppender" />
 		</logger>
 
 		<logger level="trace" additivity="false"
-			name="com.bionic.edu.PaymentDaoImpl">
+			name="com.bionic.edu.repository.PaymentDaoImpl">
 			<appender-ref ref="FileDaoImplAppender" />
 			<appender-ref ref="FilePaymentDaoImplAppender" />
 		</logger>

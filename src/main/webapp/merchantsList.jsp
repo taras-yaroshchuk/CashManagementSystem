@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.MerchantService" %>
+<%@ page import="com.bionic.edu.model.Merchant" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,12 +68,12 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.MerchantService merchantService = (com.bionic.edu.MerchantService) context
+						MerchantService merchantService = (MerchantService) context
 								.getBean("merchantServiceImpl");
 						
-						java.util.List<com.bionic.edu.Merchant> list = merchantService.findAll();
+						java.util.List<Merchant> list = merchantService.findAll();
 						
-						for (com.bionic.edu.Merchant m : list) {
+						for (Merchant m : list) {
 							out.print("<tr>");
 							out.print("<td>" + m.getId());
 							out.print("<td>" + m.getName());

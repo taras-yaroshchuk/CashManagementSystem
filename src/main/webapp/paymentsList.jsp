@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.PaymentService" %>
+<%@ page import="com.bionic.edu.model.Payment" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,12 +81,12 @@
 						<%
 							org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 									"spring/application-config.xml");
-							com.bionic.edu.PaymentService paymentService = (com.bionic.edu.PaymentService) context
+							PaymentService paymentService = (PaymentService) context
 									.getBean("paymentServiceImpl");
 
-							java.util.List<com.bionic.edu.Payment> list = paymentService.findAll();
+							java.util.List<Payment> list = paymentService.findAll();
 
-							for (com.bionic.edu.Payment p : list) {
+							for (Payment p : list) {
 								out.print("<tr>");
 								out.print("<td  align=\"right\" >" + p.getMerchantId());
 								out.print("<td  align=\"right\" >" + p.getCustomerId());

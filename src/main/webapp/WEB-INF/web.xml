@@ -10,14 +10,4 @@
 			org.springframework.web.context.ContextLoaderListener
         </listener-class>
   </listener>
-  <servlet>
-    <description></description>
-    <display-name>Hello</display-name>
-    <servlet-name>Hello</servlet-name>
-    <servlet-class>com.bionic.edu.Hello</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Hello</servlet-name>
-    <url-pattern>/Hello</url-pattern>
-  </servlet-mapping>
 </web-app>

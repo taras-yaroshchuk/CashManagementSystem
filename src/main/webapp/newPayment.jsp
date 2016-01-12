@@ -1,3 +1,5 @@
+<%@ page import="com.bionic.edu.service.PaymentService" %>
+<%@ page import="com.bionic.edu.model.Payment" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +65,7 @@
 					<%
 						org.springframework.context.ApplicationContext context = new org.springframework.context.support.ClassPathXmlApplicationContext(
 								"spring/application-config.xml");
-						com.bionic.edu.PaymentService paymentService = (com.bionic.edu.PaymentService) context
+						PaymentService paymentService = (PaymentService) context
 								.getBean("paymentServiceImpl");
 						
 						Integer customerId = Integer.valueOf(request.getParameter("customerId"));
@@ -71,7 +73,7 @@
 						String goods = request.getParameter("goods");
 						Double sum = Double.valueOf(request.getParameter("sum"));
 						
-						com.bionic.edu.Payment payment = paymentService.add(customerId, merchantId, goods, sum);
+						Payment payment = paymentService.add(customerId, merchantId, goods, sum);
 
 
 						out.print("<tr>");
