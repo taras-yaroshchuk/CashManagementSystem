@@ -6,8 +6,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.bionic.edu.Merchant;
-import com.bionic.edu.PayList;
+import com.bionic.edu.model.Merchant;
+import com.bionic.edu.model.PayList;
 import com.bionic.edu.repository.PayListDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

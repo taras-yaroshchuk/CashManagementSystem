@@ -1,6 +1,6 @@
 package com.bionic.edu.repository;
 
-import com.bionic.edu.Merchant;
+import com.bionic.edu.model.Merchant;
 
 import java.util.List;
 

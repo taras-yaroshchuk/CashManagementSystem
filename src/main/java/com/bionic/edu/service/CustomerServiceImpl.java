@@ -5,7 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.bionic.edu.Customer;
+import com.bionic.edu.model.Customer;
 import com.bionic.edu.repository.CustomerDao;
 import org.springframework.transaction.annotation.Transactional;
 

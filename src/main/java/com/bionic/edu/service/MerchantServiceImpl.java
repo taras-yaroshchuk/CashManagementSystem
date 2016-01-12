@@ -7,7 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.bionic.edu.Merchant;
+import com.bionic.edu.model.Merchant;
 import com.bionic.edu.repository.MerchantDao;
 import org.springframework.transaction.annotation.Transactional;
 

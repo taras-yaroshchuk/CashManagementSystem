@@ -1,6 +1,6 @@
 package com.bionic.edu.service;
 
-import com.bionic.edu.PayList;
+import com.bionic.edu.model.PayList;
 
 import java.util.List;
 

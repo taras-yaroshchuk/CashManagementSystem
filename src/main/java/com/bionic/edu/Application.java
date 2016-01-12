@@ -1,17 +1,17 @@
 package com.bionic.edu;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.List;
-import java.util.Random;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.bionic.edu.model.Customer;
+import com.bionic.edu.model.Merchant;
+import com.bionic.edu.model.PayList;
+import com.bionic.edu.service.CustomerService;
+import com.bionic.edu.service.MerchantService;
+import com.bionic.edu.service.PayListService;
+import com.bionic.edu.service.PaymentService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

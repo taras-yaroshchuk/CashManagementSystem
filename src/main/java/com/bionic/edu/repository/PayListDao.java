@@ -1,6 +1,6 @@
 package com.bionic.edu.repository;
 
-import com.bionic.edu.PayList;
+import com.bionic.edu.model.PayList;
 
 import java.util.List;
 

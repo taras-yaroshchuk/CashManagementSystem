@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.inject.*;
 
-import com.bionic.edu.Merchant;
-import com.bionic.edu.Payment;
+import com.bionic.edu.model.Merchant;
+import com.bionic.edu.model.Payment;
 import com.bionic.edu.repository.PaymentDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.*;
