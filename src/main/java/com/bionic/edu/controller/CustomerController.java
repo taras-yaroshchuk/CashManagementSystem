@@ -19,10 +19,4 @@ public class CustomerController {
         model.addAttribute("customerList", customerService.findAll());
         return "customersList";
     }
-
-    @RequestMapping(value = "/*", method = RequestMethod.GET)
-    public String notFound(Model model) {
-
-        return "notFound";
-    }
 }

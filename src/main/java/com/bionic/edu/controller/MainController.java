@@ -11,7 +11,7 @@ public class MainController {
         return "hello";
     }
 
-    @RequestMapping("/*")
+    @RequestMapping("/**")
     public String notFound() {
         return "notFound";
     }

@@ -13,11 +13,12 @@ public class Payment {
 	private java.sql.Timestamp dt;
 	private int customerId;
 	private int merchantId; 
-	
+
+	public Payment() {}
+
 	public int getId() {
 		return id;
 	}
-
 
 	public int getMerchantId() {
 		return merchantId;

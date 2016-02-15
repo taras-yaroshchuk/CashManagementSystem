@@ -1,8 +1,9 @@
 package com.bionic.edu.model;
 
-import java.util.Collection;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class PayList {
@@ -16,8 +17,7 @@ public class PayList {
 	private Double sumSent;
 	private int priority;
 
-	public PayList() {
-	}
+	public PayList() {}
 
 	public java.sql.Timestamp getSentDate() {
 		return sentDate;

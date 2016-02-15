@@ -38,29 +38,29 @@
 
 				<div class="list-group">
 					<h3 align="center">Customers</h3>
-					<a href="WEB-INF/jsp/customersList.jsp" class="list-group-item" align="center">Show
+					<a href="customersList.jsp" class="list-group-item" align="center">Show
 						list of Customers</a>
-					</li> <a href="NewCustomer.html" class="list-group-item" align="center">Create
+					</li> <a href="../../NewCustomer.html" class="list-group-item" align="center">Create
 						new Customer</a>
 					</li>
 					<h3 align="center">Merchants</h3>
-					<a href="WEB-INF/jsp/merchantsList.jsp" class="list-group-item" align="center">Show
+					<a href="merchantsList.jsp" class="list-group-item" align="center">Show
 						list of Merchants</a>
-					</li> <a href="NewMerchant.html" class="list-group-item" align="center">Create
+					</li> <a href="../../NewMerchant.html" class="list-group-item" align="center">Create
 						new Merchant</a>
 					</li>
 					<h3 align="center">Payments</h3>
 					<a href="paymentsList.jsp" class="list-group-item active"
-						align="center">Show list of Payments</a>
-					</li> <a href="NewPayment.html" class="list-group-item" align="center">Create
+					   align="center">Show list of Payments</a>
+					</li> <a href="../../NewPayment.html" class="list-group-item" align="center">Create
 						new Payment</a>
 					</li>
 					<h3 align="center">Pay Lists</h3>
-					<a href="showPayLists.jsp" class="list-group-item" align="center">Show
+					<a href="../../showPayLists.jsp" class="list-group-item" align="center">Show
 						all Pay Lists</a>
-					</li> <a href="workOutPayLists.jsp" class="list-group-item"
-						align="center">Work out Pay Lists</a>
-					</li> <a href="send.jsp" class="list-group-item" align="center">Sending
+					</li> <a href="../../workOutPayLists.jsp" class="list-group-item"
+							 align="center">Work out Pay Lists</a>
+					</li> <a href="../../send.jsp" class="list-group-item" align="center">Sending
 						money page</a>
 					</li>
 				</div>
