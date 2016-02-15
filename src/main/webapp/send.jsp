@@ -25,13 +25,13 @@
 			<div class="col-sm-3">
 				<div class="list-group">
 					<h3 align="center">Customers</h3>
-					<a href="customersList.jsp" class="list-group-item" align="center">Show
+					<a href="WEB-INF/jsp/customersList.jsp" class="list-group-item" align="center">Show
 						list of Customers</a>
 					</li> <a href="NewCustomer.html" class="list-group-item" align="center">Create
 						new Customer</a>
 					</li>
 					<h3 align="center">Merchants</h3>
-					<a href="merchantsList.jsp" class="list-group-item" align="center">Show
+					<a href="WEB-INF/jsp/merchantsList.jsp" class="list-group-item" align="center">Show
 						list of Merchants</a>
 					</li> <a href="NewMerchant.html" class="list-group-item" align="center">Create
 						new Merchant</a>
