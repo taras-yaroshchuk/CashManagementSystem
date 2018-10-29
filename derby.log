@@ -8,6 +8,6 @@ java.runtime.version=1.8.0_60-b27
 user.dir=C:\Users\taras\Documents\workspace\CashManagementSystem
 os.name=Windows 10
 os.arch=amd64
-os.version=10.0
 derby.system.home=null
+os.version=10.0
 Database Class Loader started - derby.database.classpath=''
