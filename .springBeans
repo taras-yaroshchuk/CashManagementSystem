@@ -10,5 +10,6 @@
 		<config>src/main/resources/spring/application-config.xml</config>
 	</configs>
 	<configSets>
+		
 	</configSets>
 </beansProjectDescription>
