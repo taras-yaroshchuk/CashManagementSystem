@@ -17,9 +17,7 @@
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<description>Configuration</description>
-
 	<context:component-scan base-package="com.bionic.edu" />
-
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
 		 <property name="url" value="jdbc:derby:C:\Users\taras\Documents\IdeaProjects\CashManagementSystem\CM;create=true"/>
